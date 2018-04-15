@@ -7,7 +7,7 @@ import org.javacord.api.entity.message.Message;
 
 public class CrossBanCommand implements CommandExecutor {
 
-    @Command(aliases = {",bc ban"}, usage = ",bc ban <user>", description = "Bans a user from all Bolb Chairs game servers.")
+    @Command(aliases = {",ban"}, usage = ",ban <user>", description = "Bans a user from all Bolb Chairs game servers.")
     public void onCommand(TextChannel channel, String[] args, Message message) {
         // code
     }

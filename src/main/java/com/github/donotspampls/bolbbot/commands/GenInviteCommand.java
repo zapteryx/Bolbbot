@@ -7,7 +7,7 @@ import org.javacord.api.entity.message.Message;
 
 public class GenInviteCommand implements CommandExecutor {
 
-    @Command(aliases = {",bc gen"}, usage = ",bc gen <server> [uses]", description = "Generates an invite for a chosen Bolb Chairs server.")
+    @Command(aliases = {",geninvite"}, usage = ",geninvite <server> [uses]", description = "Generates an invite for a chosen Bolb Chairs server.")
     public void onCommand(TextChannel channel, String[] args, Message message) {
         // code
     }
