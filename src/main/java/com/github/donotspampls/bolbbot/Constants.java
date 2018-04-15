@@ -12,8 +12,11 @@ public class Constants {
     public static final String BOLB_CHAIRS_6 = "427707375978283009";
 
     // Channels
+    public static final String GAME_LOGS = "427782433744748554";
     public static final String BC1_INFO = "427734182836568064";
+    public static final String BC1_GENERAL = "427707015717191682";
     public static final String BC2_INFO = "427767704024383488";
+    public static final String BC2_GENERAL = "427707071149113348";
     public static final String BC3_GENERAL = "427707230461362187";
     public static final String BC4_GENERAL = "427707287155638274";
     public static final String BC5_GENERAL = "427707330197716994";

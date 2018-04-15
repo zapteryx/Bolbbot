@@ -8,13 +8,11 @@ import org.javacord.api.entity.message.MessageAuthor;
 import org.javacord.api.entity.server.Server;
 import org.javacord.api.entity.user.User;
 
-import java.util.Collection;
-
 import static com.github.donotspampls.bolbbot.Constants.*;
 
-public class CrossBanCommand implements CommandExecutor {
+public class CrossUnbanCommand implements CommandExecutor {
 
-    @Command(aliases = {",ban"}, usage = ",ban <user>", description = "Bans a user from all Bolb Chairs game servers.")
+    @Command(aliases = {",unban"}, usage = ",unban <user>", description = "Unbans a user from all Bolb Chairs game servers.")
     public void onCommand(DiscordApi api, Message message, MessageAuthor author) {
         if (author.canBanUsersFromServer()) {
             User user = message.getMentionedUsers().get(0);
@@ -24,16 +22,17 @@ public class CrossBanCommand implements CommandExecutor {
             Server bc4 = api.getServerById(BOLB_CHAIRS_4).get();
             Server bc5 = api.getServerById(BOLB_CHAIRS_5).get();
 
-            bc1.banUser(user);
-            bc2.banUser(user);
-            bc3.banUser(user);
-            bc4.banUser(user);
-            bc5.banUser(user);
+            bc1.unbanUser(user);
+            bc2.unbanUser(user);
+            bc3.unbanUser(user);
+            bc4.unbanUser(user);
+            bc5.unbanUser(user);
 
             message.addReaction("\uD83D\uDC4D");
-            api.getTextChannelById(GAME_LOGS).ifPresent(channel -> channel.sendMessage("\uD83D\uDD28 Cross-banned **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` from the **Bolb Chairs** game servers."));
+            api.getTextChannelById(GAME_LOGS).ifPresent(channel -> channel.sendMessage("\uD83D\uDE4F Cross-unbanned **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` from the **Bolb Chairs** game servers."));
         } else {
             message.addReaction("\uD83D\uDEAB");
         }
     }
+
 }
