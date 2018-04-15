@@ -1,5 +1,6 @@
 package com.github.donotspampls.bolbbot;
 
+import com.github.donotspampls.bolbbot.commands.GenInviteCommand;
 import com.github.donotspampls.bolbbot.commands.SayCommand;
 import de.btobastian.sdcf4j.CommandHandler;
 import de.btobastian.sdcf4j.handler.JavacordHandler;
@@ -14,13 +15,9 @@ public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
-        if (args.length != 1) {
-            logger.error("Invalid amount of arguments provided!");
-            return;
-        }
 
         // Logging in
-        DiscordApi api = new DiscordApiBuilder().setToken(args[0]).login().join();
+        DiscordApi api = new DiscordApiBuilder().setToken("NDI4Mjc5MzQyNDIyOTQ5OTAw.DbTuzA.Lvo5N6KuPwU2b3_yVno659ZqTq8").login().join();
         logger.info("Logged in to Discord account {}", api.getYourself().getName());
 
         // Create command handler
@@ -32,7 +29,7 @@ public class Main {
         // Register commands
         commandHandler.registerCommand(new SayCommand());
         // commandHandler.registerCommand(new PurgeCommand());
-        // commandHandler.registerCommand(new GenInviteCommand());
+        commandHandler.registerCommand(new GenInviteCommand());
         // commandHandler.registerCommand(new CrossBanCommand());
 
         // Register listeners

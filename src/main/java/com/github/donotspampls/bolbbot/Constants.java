@@ -17,5 +17,6 @@ public class Constants {
     public static final String BC3_GENERAL = "427707230461362187";
     public static final String BC4_GENERAL = "427707287155638274";
     public static final String BC5_GENERAL = "427707330197716994";
+    public static final String BC6_GENERAL = "427707375978283013";
 
 }
