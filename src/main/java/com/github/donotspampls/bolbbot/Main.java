@@ -4,7 +4,6 @@ import com.github.donotspampls.bolbbot.commands.*;
 import com.github.donotspampls.bolbbot.listeners.*;
 import de.btobastian.sdcf4j.CommandHandler;
 import de.btobastian.sdcf4j.handler.JavacordHandler;
-import org.javacord.api.AccountUpdater;
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
 import org.slf4j.Logger;
@@ -36,7 +35,7 @@ public class Main {
 
         // Register listeners
         api.addListener(new ServerJoinListener(api));
-        //api.addListener(new ServerLeaveListener(api)); //discord doesn't differentiate a kick from a leave, i need to fix this!
+        api.addListener(new ServerLeaveListener(api));
 
     }
 

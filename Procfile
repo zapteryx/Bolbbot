@@ -1,0 +1,1 @@
+web: java -jar target/bolbbot-0.1-SNAPSHOT-jar-with-dependencies.jar

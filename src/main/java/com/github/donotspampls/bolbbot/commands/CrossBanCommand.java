@@ -8,8 +8,6 @@ import org.javacord.api.entity.message.MessageAuthor;
 import org.javacord.api.entity.server.Server;
 import org.javacord.api.entity.user.User;
 
-import java.util.Collection;
-
 import static com.github.donotspampls.bolbbot.Constants.*;
 
 public class CrossBanCommand implements CommandExecutor {
