@@ -8,9 +8,6 @@ import org.javacord.api.entity.message.MessageAuthor;
 import org.javacord.api.entity.message.MessageSet;
 import org.javacord.api.entity.permission.Role;
 import org.javacord.api.entity.server.Server;
-import org.javacord.api.entity.user.User;
-
-import java.util.Collection;
 
 import static com.github.donotspampls.bolbbot.Constants.*;
 
@@ -29,8 +26,8 @@ public class PurgeCommand implements CommandExecutor {
             Server bc6 = api.getServerById(BOLB_CHAIRS_6).get();
 
             // Get all server roles
-            Role bc1watchers = bc1.getRoleById("428280838996623380").get();
-            Role bc1cleaners = bc1.getRoleById("428280823595139093").get();
+            Role bc1watchers = bc1.getRolesByNameIgnoreCase("Watchers").get(0);
+            Role bc1cleaners = bc1.getRolesByNameIgnoreCase("Cleaners").get(0);
             Role bc2watchers = bc2.getRolesByNameIgnoreCase("Watchers").get(0);
             Role bc2cleaners = bc2.getRolesByNameIgnoreCase("Cleaners").get(0);
             Role bc3watchers = bc3.getRolesByNameIgnoreCase("Watchers").get(0);
@@ -50,36 +47,12 @@ public class PurgeCommand implements CommandExecutor {
             api.getTextChannelById(BC6_GENERAL).ifPresent(channel -> channel.getMessages(100000).thenCompose(MessageSet::deleteAll));
 
             // Kick all members without a role
-            for (User member : bc1.getMembers()) {
-                if (!member.getRoles(bc1).contains(bc1watchers) || !member.getRoles(bc1).contains(bc1cleaners)) {
-                    bc1.kickUser(member);
-                }
-            }
-            for (User member : bc2.getMembers()) {
-                if (!member.getRoles(bc2).contains(bc2watchers) || !member.getRoles(bc2).contains(bc2cleaners)) {
-                    bc2.kickUser(member);
-                }
-            }
-            for (User member : bc3.getMembers()) {
-                if (!member.getRoles(bc3).contains(bc3watchers) || !member.getRoles(bc3).contains(bc3cleaners)) {
-                    bc3.kickUser(member);
-                }
-            }
-            for (User member : bc4.getMembers()) {
-                if (!member.getRoles(bc4).contains(bc4watchers) || !member.getRoles(bc4).contains(bc4cleaners)) {
-                    bc4.kickUser(member);
-                }
-            }
-            for (User member : bc5.getMembers()) {
-                if (!member.getRoles(bc5).contains(bc5watchers) || !member.getRoles(bc5).contains(bc5cleaners)) {
-                    bc5.kickUser(member);
-                }
-            }
-            for (User member : bc6.getMembers()) {
-                if (!member.getRoles(bc5).contains(bc6bolbs)) {
-                    bc6.kickUser(member);
-                } else return;
-            }
+            bc1.getMembers().stream().filter(member -> member.getRoles(bc1).stream().noneMatch(r -> r.equals(bc1cleaners) || r.equals(bc1watchers))).forEach(bc1::kickUser);
+            bc2.getMembers().stream().filter(member -> member.getRoles(bc2).stream().noneMatch(r -> r.equals(bc2cleaners) || r.equals(bc2watchers))).forEach(bc1::kickUser);
+            bc3.getMembers().stream().filter(member -> member.getRoles(bc3).stream().noneMatch(r -> r.equals(bc3cleaners) || r.equals(bc3watchers))).forEach(bc1::kickUser);
+            bc4.getMembers().stream().filter(member -> member.getRoles(bc4).stream().noneMatch(r -> r.equals(bc4cleaners) || r.equals(bc4watchers))).forEach(bc1::kickUser);
+            bc5.getMembers().stream().filter(member -> member.getRoles(bc5).stream().noneMatch(r -> r.equals(bc5cleaners) || r.equals(bc5watchers))).forEach(bc1::kickUser);
+            bc6.getMembers().stream().filter(member -> member.getRoles(bc6).stream().noneMatch(r -> r.equals(bc6bolbs))).forEach(bc1::kickUser);
 
             message.addReaction("\uD83D\uDC4D");
         } else {

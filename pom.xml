@@ -32,37 +32,18 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- The sdcf4j core module -->
+        <!-- sdcf4j core module -->
         <dependency>
             <groupId>de.btobastian.sdcf4j</groupId>
             <artifactId>sdcf4j-core</artifactId>
             <version>c967c87</version>
         </dependency>
 
-        <!-- The sdcf4j module for Javacord -->
+        <!-- sdcf4j Javacord module -->
         <dependency>
             <groupId>de.btobastian.sdcf4j</groupId>
             <artifactId>sdcf4j-javacord</artifactId>
             <version>c967c87</version>
-        </dependency>
-
-        <!-- Logback classic as out logging framework -->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.inject</groupId>
-            <artifactId>guice</artifactId>
-            <version>3.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>2.11.0</version>
         </dependency>
 
     </dependencies>
