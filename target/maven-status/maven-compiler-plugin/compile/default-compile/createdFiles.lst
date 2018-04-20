@@ -1,0 +1,9 @@
+com\github\donotspampls\bolbbot\commands\CrossUnbanCommand.class
+com\github\donotspampls\bolbbot\commands\GenInviteCommand.class
+com\github\donotspampls\bolbbot\commands\CrossBanCommand.class
+com\github\donotspampls\bolbbot\listeners\ServerLeaveListener.class
+com\github\donotspampls\bolbbot\Main.class
+com\github\donotspampls\bolbbot\Constants.class
+com\github\donotspampls\bolbbot\commands\PurgeCommand.class
+com\github\donotspampls\bolbbot\listeners\ServerJoinListener.class
+com\github\donotspampls\bolbbot\commands\SayCommand.class
