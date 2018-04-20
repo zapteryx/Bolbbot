@@ -12,8 +12,8 @@ public class Main {
     public static void main(String[] args) {
 
         // Logging in
-        DiscordApi api = new DiscordApiBuilder().setToken(args[0]).login().join();
-        System.out.println("Logged in to Discord account" + api.getYourself().getName());
+        DiscordApi api = new DiscordApiBuilder().setToken(System.getenv("TOKEN")).login().join();
+        System.out.println("Logged in to Discord account: " + api.getYourself().getDiscriminatedName());
 
         // Create command handler
         CommandHandler commandHandler = new JavacordHandler(api);
