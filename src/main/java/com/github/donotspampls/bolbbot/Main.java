@@ -8,8 +8,12 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Main {
+
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
         // Spin up a web server so Heroku doesn't complain
@@ -24,13 +28,14 @@ public class Main {
 
             server.start();
             server.join();
+            logger.info("Server is up!");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         // Logging in
         DiscordApi api = new DiscordApiBuilder().setToken(System.getenv("TOKEN")).login().join();
-        System.out.println("Logged in to Discord account: " + api.getYourself().getDiscriminatedName());
+        logger.info("Logged in to Discord account: " + api.getYourself().getDiscriminatedName());
 
         // Create command handler
         CommandHandler commandHandler = new JavacordHandler(api);

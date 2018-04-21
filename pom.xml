@@ -46,6 +46,13 @@
             <version>c967c87</version>
         </dependency>
 
+        <!-- Logback classic as out logging framework -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+
         <!-- Jetty (to make Heroku work) -->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
