@@ -4,12 +4,29 @@ import com.github.donotspampls.bolbbot.commands.*;
 import com.github.donotspampls.bolbbot.listeners.*;
 import de.btobastian.sdcf4j.CommandHandler;
 import de.btobastian.sdcf4j.handler.JavacordHandler;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.handler.ContextHandler;
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
 
 public class Main {
 
     public static void main(String[] args) {
+        // Spin up a web server so Heroku doesn't complain
+        try {
+            int port = Integer.parseInt(System.getenv("PORT"));
+
+            Server server = new Server(port);
+            ContextHandler context = new ContextHandler();
+            context.setContextPath("/");
+
+            server.setHandler(context);
+
+            server.start();
+            server.join();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         // Logging in
         DiscordApi api = new DiscordApiBuilder().setToken(System.getenv("TOKEN")).login().join();

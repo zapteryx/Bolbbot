@@ -46,6 +46,13 @@
             <version>c967c87</version>
         </dependency>
 
+        <!-- Jetty (to make Heroku work) -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>9.4.9.v20180320</version>
+        </dependency>
+
     </dependencies>
 
     <build>
