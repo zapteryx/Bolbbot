@@ -16,23 +16,6 @@ public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
-        // Spin up a web server so Heroku doesn't complain
-        try {
-            int port = Integer.parseInt(System.getenv("PORT"));
-
-            Server server = new Server(port);
-            ContextHandler context = new ContextHandler();
-            context.setContextPath("/");
-
-            server.setHandler(context);
-
-            server.start();
-            server.join();
-            logger.info("Server is up!");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         // Logging in
         DiscordApi api = new DiscordApiBuilder().setToken(System.getenv("TOKEN")).login().join();
         logger.info("Logged in to Discord account: " + api.getYourself().getDiscriminatedName());
@@ -53,6 +36,23 @@ public class Main {
         // Register listeners
         api.addListener(new ServerJoinListener(api));
         api.addListener(new ServerLeaveListener(api));
+
+        // Spin up a web server so Heroku doesn't complain
+        try {
+            int port = Integer.parseInt(System.getenv("PORT"));
+
+            Server server = new Server(port);
+            ContextHandler context = new ContextHandler();
+            context.setContextPath("/");
+
+            server.setHandler(context);
+
+            server.start();
+            server.join();
+            logger.info("Server is up!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
