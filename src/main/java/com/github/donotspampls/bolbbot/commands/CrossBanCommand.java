@@ -16,17 +16,12 @@ public class CrossBanCommand implements CommandExecutor {
     public void onCommand(DiscordApi api, Message message, MessageAuthor author) {
         if (author.canBanUsersFromServer()) {
             User user = message.getMentionedUsers().get(0);
-            Server bc1 = api.getServerById(BOLB_CHAIRS_1).get();
-            Server bc2 = api.getServerById(BOLB_CHAIRS_2).get();
-            Server bc3 = api.getServerById(BOLB_CHAIRS_3).get();
-            Server bc4 = api.getServerById(BOLB_CHAIRS_4).get();
-            Server bc5 = api.getServerById(BOLB_CHAIRS_5).get();
 
-            bc1.banUser(user);
-            bc2.banUser(user);
-            bc3.banUser(user);
-            bc4.banUser(user);
-            bc5.banUser(user);
+            api.getServerById(BOLB_CHAIRS_1).ifPresent(server -> server.banUser(user));
+            api.getServerById(BOLB_CHAIRS_2).ifPresent(server -> server.banUser(user));
+            api.getServerById(BOLB_CHAIRS_3).ifPresent(server -> server.banUser(user));
+            api.getServerById(BOLB_CHAIRS_4).ifPresent(server -> server.banUser(user));
+            api.getServerById(BOLB_CHAIRS_5).ifPresent(server -> server.banUser(user));
 
             message.addReaction("\uD83D\uDC4D");
             api.getTextChannelById(GAME_LOGS).ifPresent(channel -> channel.sendMessage("\uD83D\uDD28 Cross-banned **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` from the **Bolb Chairs** game servers."));

@@ -30,9 +30,6 @@ public class Main {
         // Create command handler
         CommandHandler commandHandler = new JavacordHandler(api);
 
-        // Give the bot owner all permissions
-        commandHandler.addPermission(String.valueOf(api.getOwnerId()), "*");
-
         // Register commands
         commandHandler.registerCommand(new SayCommand());
         commandHandler.registerCommand(new PurgeCommand());
@@ -59,6 +56,7 @@ public class Main {
 
     }
 
+    // Print a "Hello world!" message if you visit the Heroku link.
     public static class HelloServlet extends HttpServlet {
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response ) throws IOException {

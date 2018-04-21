@@ -16,17 +16,12 @@ public class CrossUnbanCommand implements CommandExecutor {
     public void onCommand(DiscordApi api, Message message, MessageAuthor author) {
         if (author.canBanUsersFromServer()) {
             User user = message.getMentionedUsers().get(0);
-            Server bc1 = api.getServerById(BOLB_CHAIRS_1).get();
-            Server bc2 = api.getServerById(BOLB_CHAIRS_2).get();
-            Server bc3 = api.getServerById(BOLB_CHAIRS_3).get();
-            Server bc4 = api.getServerById(BOLB_CHAIRS_4).get();
-            Server bc5 = api.getServerById(BOLB_CHAIRS_5).get();
 
-            bc1.unbanUser(user);
-            bc2.unbanUser(user);
-            bc3.unbanUser(user);
-            bc4.unbanUser(user);
-            bc5.unbanUser(user);
+            api.getServerById(BOLB_CHAIRS_1).ifPresent(server -> server.unbanUser(user));
+            api.getServerById(BOLB_CHAIRS_2).ifPresent(server -> server.unbanUser(user));
+            api.getServerById(BOLB_CHAIRS_3).ifPresent(server -> server.unbanUser(user));
+            api.getServerById(BOLB_CHAIRS_4).ifPresent(server -> server.unbanUser(user));
+            api.getServerById(BOLB_CHAIRS_5).ifPresent(server -> server.unbanUser(user));
 
             message.addReaction("\uD83D\uDC4D");
             api.getTextChannelById(GAME_LOGS).ifPresent(channel -> channel.sendMessage("\uD83D\uDE4F Cross-unbanned **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` from the **Bolb Chairs** game servers."));

@@ -26,17 +26,17 @@ public class PurgeCommand implements CommandExecutor {
             Server bc6 = api.getServerById(BOLB_CHAIRS_6).get();
 
             // Get all server roles
-            Role bc1watchers = bc1.getRolesByNameIgnoreCase("Watchers").get(0);
-            Role bc1cleaners = bc1.getRolesByNameIgnoreCase("Cleaners").get(0);
-            Role bc2watchers = bc2.getRolesByNameIgnoreCase("Watchers").get(0);
-            Role bc2cleaners = bc2.getRolesByNameIgnoreCase("Cleaners").get(0);
-            Role bc3watchers = bc3.getRolesByNameIgnoreCase("Watchers").get(0);
-            Role bc3cleaners = bc3.getRolesByNameIgnoreCase("Cleaners").get(0);
-            Role bc4watchers = bc4.getRolesByNameIgnoreCase("Watchers").get(0);
-            Role bc4cleaners = bc4.getRolesByNameIgnoreCase("Cleaners").get(0);
-            Role bc5watchers = bc5.getRolesByNameIgnoreCase("Watchers").get(0);
-            Role bc5cleaners = bc5.getRolesByNameIgnoreCase("Cleaners").get(0);
-            Role bc6bolbs = bc6.getRolesByNameIgnoreCase("Bolbs").get(0);
+            Role bc1watchers = bc1.getRoleById("428280838996623380").get();
+            Role bc1cleaners = bc1.getRoleById("428280823595139093").get();
+            Role bc2watchers = bc2.getRoleById("428281144820105216").get();
+            Role bc2cleaners = bc2.getRoleById("428281125559861261").get();
+            Role bc3watchers = bc3.getRoleById("428281665610055681").get();
+            Role bc3cleaners = bc3.getRoleById("428281655690657803").get();
+            Role bc4watchers = bc4.getRoleById("428281725509173249").get();
+            Role bc4cleaners = bc4.getRoleById("428281715757154317").get();
+            Role bc5watchers = bc5.getRoleById("428277964367462441").get();
+            Role bc5cleaners = bc5.getRoleById("428277950048239637").get();
+            Role bc6bolbs = bc6.getRoleById("428276912318840834").get();
 
             // Get all channels and prune them
             api.getTextChannelById(BC1_GENERAL).ifPresent(channel -> channel.getMessages(100000).thenCompose(MessageSet::deleteAll));
