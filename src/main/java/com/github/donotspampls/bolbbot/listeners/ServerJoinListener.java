@@ -10,9 +10,8 @@ import org.javacord.api.event.server.member.ServerMemberJoinEvent;
 import org.javacord.api.listener.server.member.ServerMemberJoinListener;
 
 import java.util.Optional;
-import java.util.concurrent.ExecutionException;
 
-import static com.github.donotspampls.bolbbot.Constants.*;
+import static com.github.donotspampls.bolbbot.Constants.BOLB_CHAIRS_HUB;
 
 public class ServerJoinListener implements ServerMemberJoinListener {
 

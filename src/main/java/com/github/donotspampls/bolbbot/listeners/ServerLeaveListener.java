@@ -7,7 +7,7 @@ import org.javacord.api.entity.user.User;
 import org.javacord.api.event.server.member.ServerMemberLeaveEvent;
 import org.javacord.api.listener.server.member.ServerMemberLeaveListener;
 
-import static com.github.donotspampls.bolbbot.Constants.*;
+import static com.github.donotspampls.bolbbot.Constants.BOLB_CHAIRS_HUB;
 
 public class ServerLeaveListener implements ServerMemberLeaveListener {
 
