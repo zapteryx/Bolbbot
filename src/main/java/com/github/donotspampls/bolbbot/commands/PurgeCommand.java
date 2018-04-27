@@ -5,7 +5,6 @@ import de.btobastian.sdcf4j.CommandExecutor;
 import org.javacord.api.DiscordApi;
 import org.javacord.api.entity.message.Message;
 import org.javacord.api.entity.message.MessageAuthor;
-import org.javacord.api.entity.message.MessageSet;
 import org.javacord.api.entity.permission.Role;
 import org.javacord.api.entity.server.Server;
 
@@ -39,12 +38,18 @@ public class PurgeCommand implements CommandExecutor {
             Role bc6bolbs = bc6.getRoleById("428276912318840834").get();
 
             // Get all channels and prune them
-            api.getTextChannelById(BC1_GENERAL).ifPresent(channel -> channel.getMessages(100000).thenCompose(MessageSet::deleteAll));
-            api.getTextChannelById(BC2_GENERAL).ifPresent(channel -> channel.getMessages(100000).thenCompose(MessageSet::deleteAll));
-            api.getTextChannelById(BC3_GENERAL).ifPresent(channel -> channel.getMessages(100000).thenCompose(MessageSet::deleteAll));
-            api.getTextChannelById(BC4_GENERAL).ifPresent(channel -> channel.getMessages(100000).thenCompose(MessageSet::deleteAll));
-            api.getTextChannelById(BC5_GENERAL).ifPresent(channel -> channel.getMessages(100000).thenCompose(MessageSet::deleteAll));
-            api.getTextChannelById(BC6_GENERAL).ifPresent(channel -> channel.getMessages(100000).thenCompose(MessageSet::deleteAll));
+            bc1.getChannelsByName("spam").get(0).delete();
+            bc1.createTextChannelBuilder().setName("spam").create();
+            bc2.getChannelsByName("memes").get(0).delete();
+            bc2.createTextChannelBuilder().setName("spam").create();
+            bc3.getChannelsByName("colon-bolbchair-colon").get(0).delete();
+            bc3.createTextChannelBuilder().setName("colon-bolbchair-colon").create();
+            bc4.getChannelsByName("do-you-like-nitro").get(0).delete();
+            bc4.createTextChannelBuilder().setName("do-you-like-nitro").create();
+            bc5.getChannelsByName("this-is-not-stressful").get(0).delete();
+            bc5.createTextChannelBuilder().setName("this-is-not-stressful").create();
+            bc6.getChannelsByName("no-free-nitro-here").get(0).delete();
+            bc6.createTextChannelBuilder().setName("no-free-nitro-here").create();
 
             // Kick all members without a role
             bc1.getMembers().stream().filter(member -> member.getRoles(bc1).stream().noneMatch(r -> r.equals(bc1cleaners) || r.equals(bc1watchers))).forEach(bc1::kickUser);

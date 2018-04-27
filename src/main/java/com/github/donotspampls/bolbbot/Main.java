@@ -1,6 +1,7 @@
 package com.github.donotspampls.bolbbot;
 
 import com.github.donotspampls.bolbbot.commands.*;
+import com.github.donotspampls.bolbbot.listeners.InviteListener;
 import com.github.donotspampls.bolbbot.listeners.ServerJoinListener;
 import com.github.donotspampls.bolbbot.listeners.ServerLeaveListener;
 import de.btobastian.sdcf4j.CommandHandler;
@@ -40,6 +41,7 @@ public class Main {
         // Register listeners
         api.addListener(new ServerJoinListener(api));
         api.addListener(new ServerLeaveListener(api));
+        api.addListener(new InviteListener(api));
 
         // Spin up a web server so Heroku doesn't complain
         try {

@@ -2,14 +2,10 @@ package com.github.donotspampls.bolbbot.listeners;
 
 import com.github.donotspampls.bolbbot.Constants;
 import org.javacord.api.DiscordApi;
-import org.javacord.api.entity.channel.TextChannel;
-import org.javacord.api.entity.permission.Role;
 import org.javacord.api.entity.server.Server;
 import org.javacord.api.entity.user.User;
 import org.javacord.api.event.server.member.ServerMemberJoinEvent;
 import org.javacord.api.listener.server.member.ServerMemberJoinListener;
-
-import java.util.Optional;
 
 import static com.github.donotspampls.bolbbot.Constants.BOLB_CHAIRS_HUB;
 

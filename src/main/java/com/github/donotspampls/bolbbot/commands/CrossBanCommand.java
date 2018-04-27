@@ -5,7 +5,6 @@ import de.btobastian.sdcf4j.CommandExecutor;
 import org.javacord.api.DiscordApi;
 import org.javacord.api.entity.message.Message;
 import org.javacord.api.entity.message.MessageAuthor;
-import org.javacord.api.entity.server.Server;
 import org.javacord.api.entity.user.User;
 
 import static com.github.donotspampls.bolbbot.Constants.*;
