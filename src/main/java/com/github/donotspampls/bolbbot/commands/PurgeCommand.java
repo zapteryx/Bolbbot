@@ -25,17 +25,17 @@ public class PurgeCommand implements CommandExecutor {
             Server bc6 = api.getServerById(BOLB_CHAIRS_6).get();
 
             // Get all server roles
-            Role bc1watchers = bc1.getRoleById("428280838996623380").get();
-            Role bc1cleaners = bc1.getRoleById("428280823595139093").get();
-            Role bc2watchers = bc2.getRoleById("428281144820105216").get();
-            Role bc2cleaners = bc2.getRoleById("428281125559861261").get();
-            Role bc3watchers = bc3.getRoleById("428281665610055681").get();
-            Role bc3cleaners = bc3.getRoleById("428281655690657803").get();
-            Role bc4watchers = bc4.getRoleById("428281725509173249").get();
-            Role bc4cleaners = bc4.getRoleById("428281715757154317").get();
-            Role bc5watchers = bc5.getRoleById("428277964367462441").get();
-            Role bc5cleaners = bc5.getRoleById("428277950048239637").get();
-            Role bc6bolbs = bc6.getRoleById("428276912318840834").get();
+            Role bc1watchers = bc1.getRoleById("445258841207078914").get();
+            Role bc1cleaners = bc1.getRoleById("445258840963809291").get();
+            Role bc2watchers = bc2.getRoleById("445259117985267732").get();
+            Role bc2cleaners = bc2.getRoleById("445259116731039745").get();
+            Role bc3watchers = bc3.getRoleById("445259481304268801").get();
+            Role bc3cleaners = bc3.getRoleById("445259479861297163").get();
+            Role bc4watchers = bc4.getRoleById("445259886914306048").get();
+            Role bc4cleaners = bc4.getRoleById("445259886771830785").get();
+            Role bc5watchers = bc5.getRoleById("445260071971192832").get();
+            Role bc5cleaners = bc5.getRoleById("445260070977011723").get();
+            Role bc6bolbs = bc6.getRoleById("445260653641334794").get();
 
             // Get all channels and prune them
             bc1.getChannelsByName("spam").get(0).delete();
