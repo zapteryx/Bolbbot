@@ -1,27 +1,29 @@
 package com.github.donotspampls.bolbbot.listeners;
 
 import org.javacord.api.DiscordApi;
+import org.javacord.api.entity.channel.TextChannel;
+import org.javacord.api.entity.message.Message;
+import org.javacord.api.entity.server.Server;
 import org.javacord.api.event.message.MessageCreateEvent;
 import org.javacord.api.listener.message.MessageCreateListener;
 
 public class InviteListener implements MessageCreateListener {
 
-    private DiscordApi api;
-
-    public InviteListener(DiscordApi api) {
-        this.api = api;
-    }
-
     @Override
     public void onMessageCreate(MessageCreateEvent ev) {
+        Server server = ev.getServer().get();
+        Message msg = ev.getMessage();
+        TextChannel channel = ev.getChannel();
+
         // really stupid code
-        if (!ev.getServer().get().getName().equals("Bolb Chairs Hub")) {
-            if (!ev.getMessage().getAuthor().canCreateInstantInviteToTextChannel()) {
-                if (ev.getMessage().getContent().startsWith("https://discord.gg") | ev.getMessage().getContent().startsWith("https://discordapp.com/invite")) {
-                    ev.getMessage().delete();
-                    ev.getChannel().sendMessage("<@" + ev.getMessage().getAuthor().getId() + "> - Please do not post invites to other servers here!");
+        if (server.getName().equals("Bolb Chairs Hub")) {
+            if (!msg.getAuthor().canCreateInstantInviteToTextChannel()) {
+                if (msg.getContent().startsWith("https://discord.gg") | ev.getMessage().getContent().startsWith("https://discordapp.com/invite")) {
+                    msg.delete();
+                    channel.sendMessage("<@" + ev.getMessage().getAuthor().getId() + "> - Please do not post invites to other servers here!");
                 }
             }
         }
     }
+
 }

@@ -3,6 +3,9 @@ package com.github.donotspampls.bolbbot.commands;
 import de.btobastian.sdcf4j.Command;
 import de.btobastian.sdcf4j.CommandExecutor;
 import org.javacord.api.DiscordApi;
+import org.javacord.api.entity.channel.Channel;
+import org.javacord.api.entity.channel.ServerChannel;
+import org.javacord.api.entity.channel.TextChannel;
 import org.javacord.api.entity.message.Message;
 import org.javacord.api.entity.message.MessageAuthor;
 
@@ -15,12 +18,42 @@ public class SayCommand implements CommandExecutor {
         if (author.canManageMessagesInTextChannel()) {
             String msg = String.join(" ", args);
 
-            api.getServerById(BOLB_CHAIRS_1).getChannelByName("spam", 0).ifPresent(channel -> channel.sendMessage(msg));
-            api.getServerById(BOLB_CHAIRS_2).getChannelByName("spam", 0).ifPresent(channel -> channel.sendMessage(msg));
-            api.getServerById(BOLB_CHAIRS_3).getChannelByName("colon-bolbchair-colon", 0).ifPresent(channel -> channel.sendMessage(msg));
-            api.getServerById(BOLB_CHAIRS_4).getChannelByName("do-you-like-nitro", 0).ifPresent(channel -> channel.sendMessage(msg));
-            api.getServerById(BOLB_CHAIRS_5).getChannelByName("this-is-not-stressful", 0).ifPresent(channel -> channel.sendMessage(msg));
-            api.getServerById(BOLB_CHAIRS_6).getChannelByName("no-free-nitro-here", 0).ifPresent(channel -> channel.sendMessage(msg));
+            api.getServerById(BOLB_CHAIRS_1).ifPresent(server -> {
+                server.getChannelsByName("info").get(0).asServerTextChannel().ifPresent(channel -> {
+                    channel.sendMessage(msg);
+                });
+            });
+
+            api.getServerById(BOLB_CHAIRS_2).ifPresent(server -> {
+                server.getChannelsByName("info").get(0).asServerTextChannel().ifPresent(channel -> {
+                    channel.sendMessage(msg);
+                });
+            });
+
+            api.getServerById(BOLB_CHAIRS_3).ifPresent(server -> {
+                server.getChannelsByName("colon-bolbchair-colon").get(0).asServerTextChannel().ifPresent(channel -> {
+                    channel.sendMessage(msg);
+                });
+            });
+
+            api.getServerById(BOLB_CHAIRS_4).ifPresent(server -> {
+                server.getChannelsByName("do-you-like-nitro").get(0).asServerTextChannel().ifPresent(channel -> {
+                    channel.sendMessage(msg);
+                });
+            });
+
+            api.getServerById(BOLB_CHAIRS_5).ifPresent(server -> {
+                server.getChannelsByName("this-is-not-stressful").get(0).asServerTextChannel().ifPresent(channel -> {
+                    channel.sendMessage(msg);
+                });
+            });
+
+            api.getServerById(BOLB_CHAIRS_6).ifPresent(server -> {
+                server.getChannelsByName("no-free-nitro-here").get(0).asServerTextChannel().ifPresent(channel -> {
+                    channel.sendMessage(msg);
+                });
+            });
+
         } else {
             message.addReaction("\uD83D\uDEAB");
         }

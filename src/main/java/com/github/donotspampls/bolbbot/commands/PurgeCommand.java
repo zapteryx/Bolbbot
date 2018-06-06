@@ -40,7 +40,7 @@ public class PurgeCommand implements CommandExecutor {
             // Get all channels and prune them
             bc1.getChannelsByName("spam").get(0).delete();
             bc1.createTextChannelBuilder().setName("spam").create();
-            bc2.getChannelsByName("memes").get(0).delete();
+            bc2.getChannelsByName("spam").get(0).delete();
             bc2.createTextChannelBuilder().setName("spam").create();
             bc3.getChannelsByName("colon-bolbchair-colon").get(0).delete();
             bc3.createTextChannelBuilder().setName("colon-bolbchair-colon").create();
@@ -53,11 +53,11 @@ public class PurgeCommand implements CommandExecutor {
 
             // Kick all members without a role
             bc1.getMembers().stream().filter(member -> member.getRoles(bc1).stream().noneMatch(r -> r.equals(bc1cleaners) || r.equals(bc1watchers))).forEach(bc1::kickUser);
-            bc2.getMembers().stream().filter(member -> member.getRoles(bc2).stream().noneMatch(r -> r.equals(bc2cleaners) || r.equals(bc2watchers))).forEach(bc1::kickUser);
-            bc3.getMembers().stream().filter(member -> member.getRoles(bc3).stream().noneMatch(r -> r.equals(bc3cleaners) || r.equals(bc3watchers))).forEach(bc1::kickUser);
-            bc4.getMembers().stream().filter(member -> member.getRoles(bc4).stream().noneMatch(r -> r.equals(bc4cleaners) || r.equals(bc4watchers))).forEach(bc1::kickUser);
-            bc5.getMembers().stream().filter(member -> member.getRoles(bc5).stream().noneMatch(r -> r.equals(bc5cleaners) || r.equals(bc5watchers))).forEach(bc1::kickUser);
-            bc6.getMembers().stream().filter(member -> member.getRoles(bc6).stream().noneMatch(r -> r.equals(bc6bolbs))).forEach(bc1::kickUser);
+            bc2.getMembers().stream().filter(member -> member.getRoles(bc2).stream().noneMatch(r -> r.equals(bc2cleaners) || r.equals(bc2watchers))).forEach(bc2::kickUser);
+            bc3.getMembers().stream().filter(member -> member.getRoles(bc3).stream().noneMatch(r -> r.equals(bc3cleaners) || r.equals(bc3watchers))).forEach(bc3::kickUser);
+            bc4.getMembers().stream().filter(member -> member.getRoles(bc4).stream().noneMatch(r -> r.equals(bc4cleaners) || r.equals(bc4watchers))).forEach(bc4::kickUser);
+            bc5.getMembers().stream().filter(member -> member.getRoles(bc5).stream().noneMatch(r -> r.equals(bc5cleaners) || r.equals(bc5watchers))).forEach(bc5::kickUser);
+            bc6.getMembers().stream().filter(member -> member.getRoles(bc6).stream().noneMatch(r -> r.equals(bc6bolbs))).forEach(bc6::kickUser);
 
             message.addReaction("\uD83D\uDC4D");
         } else {

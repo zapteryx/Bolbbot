@@ -3,7 +3,6 @@ package com.github.donotspampls.bolbbot;
 import com.github.donotspampls.bolbbot.commands.*;
 import com.github.donotspampls.bolbbot.listeners.InviteListener;
 import com.github.donotspampls.bolbbot.listeners.ServerJoinListener;
-import com.github.donotspampls.bolbbot.listeners.ServerLeaveListener;
 import de.btobastian.sdcf4j.CommandHandler;
 import de.btobastian.sdcf4j.handler.JavacordHandler;
 import org.javacord.api.DiscordApi;
@@ -18,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
 
         // Logging in
-        DiscordApi api = new DiscordApiBuilder().setToken(System.getenv("TOKEN")).login().join();
+        DiscordApi api = new DiscordApiBuilder().setToken("TOKEN").login().join();
         logger.info("Logged in to Discord account: " + api.getYourself().getDiscriminatedName());
 
         // Create command handler
@@ -33,8 +32,7 @@ public class Main {
 
         // Register listeners
         api.addListener(new ServerJoinListener(api));
-        api.addListener(new ServerLeaveListener(api));
-        api.addListener(new InviteListener(api));
+        api.addListener(new InviteListener());
 
     }
 

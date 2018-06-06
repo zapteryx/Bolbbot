@@ -13,13 +13,5 @@ public class Constants {
 
     // Channels
     public static final String GAME_LOGS = "445263102603427840";
-    public static final String BC1_INFO = "445272991560105984";
-    public static final String BC1_GENERAL = "445257017687539715";
-    public static final String BC2_INFO = "445273087622250507";
-    public static final String BC2_GENERAL = "445257039732539404";
-    public static final String BC3_GENERAL = "445257054605541393";
-    public static final String BC4_GENERAL = "445257078173466644";
-    public static final String BC5_GENERAL = "445257303369711629";
-    public static final String BC6_GENERAL = "445260596410318862";
 
 }
