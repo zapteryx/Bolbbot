@@ -20,7 +20,7 @@
         <dependency>
             <groupId>de.btobastian.Javacord</groupId>
             <artifactId>javacord-api</artifactId>
-            <version>f306ace</version>
+            <version>22c8c32</version>
             <scope>compile</scope>
         </dependency>
 
@@ -28,7 +28,7 @@
         <dependency>
             <groupId>de.btobastian.Javacord</groupId>
             <artifactId>javacord-core</artifactId>
-            <version>f306ace</version>
+            <version>22c8c32</version>
             <scope>runtime</scope>
         </dependency>
 
@@ -52,7 +52,7 @@
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
         </dependency>
-        
+
     </dependencies>
 
     <build>
