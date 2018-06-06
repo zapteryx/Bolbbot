@@ -66,32 +66,32 @@ public class ServerJoinListener implements ServerMemberJoinListener {
         if (!user.getMutualServers().contains("Bolb Chairs Hub")) {
             switch (name) {
                 case "Bolb Chairs #1":
-                    api.getServerById(BOLB_CHAIRS_HUB).flatMap(bch -> bch.getRoleById("427782398017798154")).ifPresent(role -> {
+                    api.getServerById(BOLB_CHAIRS_HUB).flatMap(bch -> bch.getRoleById("445326005020655636")).ifPresent(role -> {
                         role.getServer().addRoleToUser(user, role);
                     });
                     break;
                 case "Bolb Chairs #2":
-                    api.getServerById(BOLB_CHAIRS_HUB).flatMap(bch -> bch.getRoleById("427782390518382602")).ifPresent(role -> {
+                    api.getServerById(BOLB_CHAIRS_HUB).flatMap(bch -> bch.getRoleById("445326003771015180")).ifPresent(role -> {
                         role.getServer().addRoleToUser(user, role);
                     });
                     break;
                 case "Bolb Chairs #3":
-                    api.getServerById(BOLB_CHAIRS_HUB).flatMap(bch -> bch.getRoleById("427782383765422084")).ifPresent(role -> {
+                    api.getServerById(BOLB_CHAIRS_HUB).flatMap(bch -> bch.getRoleById("445326002944737282")).ifPresent(role -> {
                         role.getServer().addRoleToUser(user, role);
                     });
                     break;
                 case "Bolb Chairs #4":
-                    api.getServerById(BOLB_CHAIRS_HUB).flatMap(bch -> bch.getRoleById("427782387867320320")).ifPresent(role -> {
+                    api.getServerById(BOLB_CHAIRS_HUB).flatMap(bch -> bch.getRoleById("445326002563055616")).ifPresent(role -> {
                         role.getServer().addRoleToUser(user, role);
                     });
                     break;
                 case "Bolb Chairs #5":
-                    api.getServerById(BOLB_CHAIRS_HUB).flatMap(bch -> bch.getRoleById("427782376295366666")).ifPresent(role -> {
+                    api.getServerById(BOLB_CHAIRS_HUB).flatMap(bch -> bch.getRoleById("445326001606623232")).ifPresent(role -> {
                         role.getServer().addRoleToUser(user, role);
                     });
                     break;
                 case "Bolb Chairs #6":
-                    api.getServerById(BOLB_CHAIRS_HUB).flatMap(bch -> bch.getRoleById("427782379625775115")).ifPresent(role -> {
+                    api.getServerById(BOLB_CHAIRS_HUB).flatMap(bch -> bch.getRoleById("445326000167976962")).ifPresent(role -> {
                         role.getServer().addRoleToUser(user, role);
                     });
                     break;

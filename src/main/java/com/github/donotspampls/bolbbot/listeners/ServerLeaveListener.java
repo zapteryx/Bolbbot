@@ -26,12 +26,12 @@ public class ServerLeaveListener implements ServerMemberLeaveListener {
             User user = ev.getUser();
             Server bch = api.getServerById(BOLB_CHAIRS_HUB).get();
 
-            Role bc1role = api.getServerById(BOLB_CHAIRS_HUB).get().getRoleById("427782398017798154").get();
-            Role bc2role = api.getServerById(BOLB_CHAIRS_HUB).get().getRoleById("427782390518382602").get();
-            Role bc3role = api.getServerById(BOLB_CHAIRS_HUB).get().getRoleById("427782383765422084").get();
-            Role bc4role = api.getServerById(BOLB_CHAIRS_HUB).get().getRoleById("427782387867320320").get();
-            Role bc5role = api.getServerById(BOLB_CHAIRS_HUB).get().getRoleById("427782376295366666").get();
-            Role bc6role = api.getServerById(BOLB_CHAIRS_HUB).get().getRoleById("427782379625775115").get();
+            Role bc1role = api.getServerById(BOLB_CHAIRS_HUB).get().getRoleById("445326005020655636").get();
+            Role bc2role = api.getServerById(BOLB_CHAIRS_HUB).get().getRoleById("445326003771015180").get();
+            Role bc3role = api.getServerById(BOLB_CHAIRS_HUB).get().getRoleById("445326002944737282").get();
+            Role bc4role = api.getServerById(BOLB_CHAIRS_HUB).get().getRoleById("445326002563055616").get();
+            Role bc5role = api.getServerById(BOLB_CHAIRS_HUB).get().getRoleById("445326001606623232").get();
+            Role bc6role = api.getServerById(BOLB_CHAIRS_HUB).get().getRoleById("445326000167976962").get();
 
             if (bch.getRolesOf(user).contains(bc1role)) {
                 bch.removeRoleFromUser(user, bc1role);

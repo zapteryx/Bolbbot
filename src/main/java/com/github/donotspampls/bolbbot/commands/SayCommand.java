@@ -15,11 +15,12 @@ public class SayCommand implements CommandExecutor {
         if (author.canManageMessagesInTextChannel()) {
             String msg = String.join(" ", args);
 
-            api.getTextChannelById(BC1_INFO).ifPresent(channel -> channel.sendMessage(msg));
-            api.getTextChannelById(BC2_INFO).ifPresent(channel -> channel.sendMessage(msg));
-            api.getTextChannelById(BC3_GENERAL).ifPresent(channel -> channel.sendMessage(msg));
-            api.getTextChannelById(BC4_GENERAL).ifPresent(channel -> channel.sendMessage(msg));
-            api.getTextChannelById(BC5_GENERAL).ifPresent(channel -> channel.sendMessage(msg));
+            api.getServerById(BOLB_CHAIRS_1).getChannelByName("spam", 0).ifPresent(channel -> channel.sendMessage(msg));
+            api.getServerById(BOLB_CHAIRS_2).getChannelByName("spam", 0).ifPresent(channel -> channel.sendMessage(msg));
+            api.getServerById(BOLB_CHAIRS_3).getChannelByName("colon-bolbchair-colon", 0).ifPresent(channel -> channel.sendMessage(msg));
+            api.getServerById(BOLB_CHAIRS_4).getChannelByName("do-you-like-nitro", 0).ifPresent(channel -> channel.sendMessage(msg));
+            api.getServerById(BOLB_CHAIRS_5).getChannelByName("this-is-not-stressful", 0).ifPresent(channel -> channel.sendMessage(msg));
+            api.getServerById(BOLB_CHAIRS_6).getChannelByName("no-free-nitro-here", 0).ifPresent(channel -> channel.sendMessage(msg));
         } else {
             message.addReaction("\uD83D\uDEAB");
         }

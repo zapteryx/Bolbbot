@@ -22,37 +22,37 @@ public class GenInviteCommand implements CommandExecutor {
 
             switch (args[0]) {
                 case "1":
-                    api.getServerChannelById(BC1_INFO).ifPresent(serverChannel -> {
+                    api.getServerById(BOLB_CHAIRS_1).getChannelByName("info", 0).ifPresent(serverChannel -> {
                         String invite = createInvite(uses, serverChannel);
                         channel.sendMessage("Invite for **Bolb Chairs #" + args[0] + "**: " + invite + " (" + args[1] + " uses)");
                     });
                     break;
                 case "2":
-                    api.getServerChannelById(BC2_INFO).ifPresent(serverChannel -> {
+                    api.getServerById(BOLB_CHAIRS_2).getChannelByName("info", 0).ifPresent(serverChannel -> {
                         String invite = createInvite(uses, serverChannel);
                         channel.sendMessage("Invite for **Bolb Chairs #" + args[0] + "**: " + invite + " (" + args[1] + " uses)");
                     });
                     break;
                 case "3":
-                    api.getServerChannelById(BC3_GENERAL).ifPresent(serverChannel -> {
+                    api.getServerById(BOLB_CHAIRS_3).getChannelByName("colon-bolbchair-colon", 0).ifPresent(serverChannel -> {
                         String invite = createInvite(uses, serverChannel);
                         channel.sendMessage("Invite for **Bolb Chairs #" + args[0] + "**: " + invite + " (" + args[1] + " uses)");
                     });
                     break;
                 case "4":
-                    api.getServerChannelById(BC4_GENERAL).ifPresent(serverChannel -> {
+                    api.getServerById(BOLB_CHAIRS_4).getChannelByName("do-you-like-nitro", 0).ifPresent(serverChannel -> {
                         String invite = createInvite(uses, serverChannel);
                         channel.sendMessage("Invite for **Bolb Chairs #" + args[0] + "**: " + invite + " (" + args[1] + " uses)");
                     });
                     break;
                 case "5":
-                    api.getServerChannelById(BC5_GENERAL).ifPresent(serverChannel -> {
+                    api.getServerById(BOLB_CHAIRS_5).getChannelByName("this-is-not-stressful", 0).ifPresent(serverChannel -> {
                         String invite = createInvite(uses, serverChannel);
                         channel.sendMessage("Invite for **Bolb Chairs #" + args[0] + "**: " + invite + " (" + args[1] + " uses)");
                     });
                     break;
                 case "6":
-                    api.getServerChannelById(BC6_GENERAL).ifPresent(serverChannel -> {
+                    api.getServerById(BOLB_CHAIRS_6).getChannelByName("no-free-nitro-here", 0).ifPresent(serverChannel -> {
                         String invite = createInvite(uses, serverChannel);
                         channel.sendMessage("Invite for **Bolb Chairs #" + args[0] + "**: " + invite + " (" + args[1] + " uses)");
                     });
