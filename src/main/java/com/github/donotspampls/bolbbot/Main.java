@@ -43,29 +43,6 @@ public class Main {
         api.addListener(new ServerLeaveListener(api));
         api.addListener(new InviteListener(api));
 
-        // Spin up a web server so Heroku doesn't complain
-        try {
-            int port = Integer.parseInt(System.getenv("PORT"));
-            Server server = new Server(port);
-            ServletHandler handler = new ServletHandler();
-            server.setHandler(handler);
-            handler.addServletWithMapping(HelloServlet.class, "/*");
-            server.start();
-            server.join();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    // Print a "Hello world!" message if you visit the Heroku link.
-    public static class HelloServlet extends HttpServlet {
-        @Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response ) throws IOException {
-            response.setContentType("text/html");
-            response.setStatus(HttpServletResponse.SC_OK);
-            response.getWriter().println("<h1>Hello world!</h1>");
-        }
     }
 
 }
