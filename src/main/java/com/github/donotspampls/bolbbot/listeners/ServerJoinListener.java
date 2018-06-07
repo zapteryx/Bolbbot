@@ -65,6 +65,7 @@ public class ServerJoinListener implements ServerMemberJoinListener {
                     bc5count = 0;
                     bc6count = bc6count + 1;
                     api.getTextChannelById(Constants.GAME_LOGS).ifPresent(textChannel -> textChannel.sendMessage("\uD83D\uDCE5 **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` is **#" + bc6count + "** to join the **" + server.getName() + "** server!"));
+                    bc6count = 0;
                     break;
                 case "Bolb Chairs #7":
                     return;

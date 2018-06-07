@@ -3,10 +3,12 @@ package com.github.donotspampls.bolbbot.commands;
 import de.btobastian.sdcf4j.Command;
 import de.btobastian.sdcf4j.CommandExecutor;
 import org.javacord.api.DiscordApi;
+import org.javacord.api.entity.channel.Channel;
 import org.javacord.api.entity.message.Message;
 import org.javacord.api.entity.message.MessageAuthor;
 import org.javacord.api.entity.permission.Role;
 import org.javacord.api.entity.server.Server;
+import org.javacord.api.util.logging.ExceptionLogger;
 
 import static com.github.donotspampls.bolbbot.Constants.*;
 
@@ -40,14 +42,19 @@ public class PurgeCommand implements CommandExecutor {
             // Get all channels and prune them
             bc1.getChannelsByName("spam").get(0).delete();
             bc1.createTextChannelBuilder().setName("spam").create();
+
             bc2.getChannelsByName("spam").get(0).delete();
             bc2.createTextChannelBuilder().setName("spam").create();
+
             bc3.getChannelsByName("colon-bolbchair-colon").get(0).delete();
             bc3.createTextChannelBuilder().setName("colon-bolbchair-colon").create();
+
             bc4.getChannelsByName("do-you-like-nitro").get(0).delete();
             bc4.createTextChannelBuilder().setName("do-you-like-nitro").create();
+
             bc5.getChannelsByName("this-is-not-stressful").get(0).delete();
             bc5.createTextChannelBuilder().setName("this-is-not-stressful").create();
+
             bc6.getChannelsByName("no-free-nitro-here").get(0).delete();
             bc6.createTextChannelBuilder().setName("no-free-nitro-here").create();
 
