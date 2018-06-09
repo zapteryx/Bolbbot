@@ -9,8 +9,6 @@ import org.javacord.api.entity.server.Server;
 import org.javacord.api.util.logging.ExceptionLogger;
 
 import static com.github.donotspampls.bolbbot.Constants.*;
-import static com.github.donotspampls.bolbbot.Constants.BOLB_CHAIRS_5;
-import static com.github.donotspampls.bolbbot.Constants.BOLB_CHAIRS_6;
 
 public class MembersCommand implements CommandExecutor {
 

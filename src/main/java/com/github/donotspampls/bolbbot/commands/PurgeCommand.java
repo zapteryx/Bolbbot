@@ -3,12 +3,10 @@ package com.github.donotspampls.bolbbot.commands;
 import de.btobastian.sdcf4j.Command;
 import de.btobastian.sdcf4j.CommandExecutor;
 import org.javacord.api.DiscordApi;
-import org.javacord.api.entity.channel.Channel;
 import org.javacord.api.entity.message.Message;
 import org.javacord.api.entity.message.MessageAuthor;
 import org.javacord.api.entity.permission.Role;
 import org.javacord.api.entity.server.Server;
-import org.javacord.api.util.logging.ExceptionLogger;
 
 import static com.github.donotspampls.bolbbot.Constants.*;
 

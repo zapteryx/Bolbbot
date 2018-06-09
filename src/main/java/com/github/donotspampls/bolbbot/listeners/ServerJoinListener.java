@@ -35,8 +35,6 @@ public class ServerJoinListener implements ServerMemberJoinListener {
         if (user.getRoles(bchub).stream().anyMatch(role -> role.getName().contains("Watchers"))) return;
         else {
             switch (name) {
-                case "Bolb Chairs Hub":
-                    return;
                 case "Bolb Chairs #1":
                     bc1count = bc1count + 1;
                     api.getTextChannelById(Constants.GAME_LOGS).ifPresent(textChannel -> textChannel.sendMessage("\uD83D\uDCE5 **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` is **#" + bc1count + "** to join the **" + server.getName() + "** server!"));
@@ -67,8 +65,7 @@ public class ServerJoinListener implements ServerMemberJoinListener {
                     api.getTextChannelById(Constants.GAME_LOGS).ifPresent(textChannel -> textChannel.sendMessage("\uD83D\uDCE5 **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` is **#" + bc6count + "** to join the **" + server.getName() + "** server!"));
                     bc6count = 0;
                     break;
-                case "Bolb Chairs #7":
-                    return;
+                default: return;
             }
         }
 
@@ -93,6 +90,7 @@ public class ServerJoinListener implements ServerMemberJoinListener {
                 case "Bolb Chairs #6":
                     api.getServerById(BOLB_CHAIRS_HUB).flatMap(bch -> bch.getRoleById("445326000167976962")).ifPresent(role -> role.getServer().addRoleToUser(user, role));
                     break;
+                default:
             }
         }
     }

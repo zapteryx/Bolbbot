@@ -15,42 +15,12 @@ public class SayCommand implements CommandExecutor {
         if (author.canManageMessagesInTextChannel()) {
             String msg = String.join(" ", args);
 
-            api.getServerById(BOLB_CHAIRS_1).ifPresent(server -> {
-                server.getChannelsByName("info").get(0).asServerTextChannel().ifPresent(channel -> {
-                    channel.sendMessage(msg);
-                });
-            });
-
-            api.getServerById(BOLB_CHAIRS_2).ifPresent(server -> {
-                server.getChannelsByName("info").get(0).asServerTextChannel().ifPresent(channel -> {
-                    channel.sendMessage(msg);
-                });
-            });
-
-            api.getServerById(BOLB_CHAIRS_3).ifPresent(server -> {
-                server.getChannelsByName("colon-bolbchair-colon").get(0).asServerTextChannel().ifPresent(channel -> {
-                    channel.sendMessage(msg);
-                });
-            });
-
-            api.getServerById(BOLB_CHAIRS_4).ifPresent(server -> {
-                server.getChannelsByName("do-you-like-nitro").get(0).asServerTextChannel().ifPresent(channel -> {
-                    channel.sendMessage(msg);
-                });
-            });
-
-            api.getServerById(BOLB_CHAIRS_5).ifPresent(server -> {
-                server.getChannelsByName("this-is-not-stressful").get(0).asServerTextChannel().ifPresent(channel -> {
-                    channel.sendMessage(msg);
-                });
-            });
-
-            api.getServerById(BOLB_CHAIRS_6).ifPresent(server -> {
-                server.getChannelsByName("no-free-nitro-here").get(0).asServerTextChannel().ifPresent(channel -> {
-                    channel.sendMessage(msg);
-                });
-            });
-
+            api.getServerById(BOLB_CHAIRS_1).ifPresent(server -> server.getChannelsByName("info").get(0).asServerTextChannel().ifPresent(channel -> channel.sendMessage(msg)));
+            api.getServerById(BOLB_CHAIRS_2).ifPresent(server -> server.getChannelsByName("info").get(0).asServerTextChannel().ifPresent(channel -> channel.sendMessage(msg)));
+            api.getServerById(BOLB_CHAIRS_3).ifPresent(server -> server.getChannelsByName("colon-bolbchair-colon").get(0).asServerTextChannel().ifPresent(channel -> channel.sendMessage(msg)));
+            api.getServerById(BOLB_CHAIRS_4).ifPresent(server -> server.getChannelsByName("do-you-like-nitro").get(0).asServerTextChannel().ifPresent(channel -> channel.sendMessage(msg)));
+            api.getServerById(BOLB_CHAIRS_5).ifPresent(server -> server.getChannelsByName("this-is-not-stressful").get(0).asServerTextChannel().ifPresent(channel -> channel.sendMessage(msg)));
+            api.getServerById(BOLB_CHAIRS_6).ifPresent(server -> server.getChannelsByName("no-free-nitro-here").get(0).asServerTextChannel().ifPresent(channel -> channel.sendMessage(msg)));
         } else {
             message.addReaction("\uD83D\uDEAB");
         }
