@@ -3,6 +3,7 @@ package com.github.donotspampls.bolbbot;
 import com.github.donotspampls.bolbbot.commands.*;
 import com.github.donotspampls.bolbbot.listeners.InviteListener;
 import com.github.donotspampls.bolbbot.listeners.ServerJoinListener;
+import com.github.donotspampls.bolbbot.listeners.ServerLeaveListener;
 import de.btobastian.sdcf4j.CommandHandler;
 import de.btobastian.sdcf4j.handler.JavacordHandler;
 import org.javacord.api.DiscordApi;
@@ -26,16 +27,18 @@ public class Main {
         CommandHandler commandHandler = new JavacordHandler(api);
 
         // Register commands
-        commandHandler.registerCommand(new SayCommand());
-        commandHandler.registerCommand(new PurgeCommand());
-        commandHandler.registerCommand(new GenInviteCommand());
+        commandHandler.registerCommand(new CatCommand());
         commandHandler.registerCommand(new CrossBanCommand());
         commandHandler.registerCommand(new CrossUnbanCommand());
-        commandHandler.registerCommand(new MembersCommand());
+        commandHandler.registerCommand(new GenInviteCommand());
+        commandHandler.registerCommand(new LimitCommand());
+        commandHandler.registerCommand(new PurgeCommand());
+        commandHandler.registerCommand(new SayCommand());
 
         // Register listeners
-        api.addListener(new ServerJoinListener(api));
         api.addListener(new InviteListener());
+        api.addListener(new ServerJoinListener(api));
+        api.addListener(new ServerLeaveListener());
 
     }
 

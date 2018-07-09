@@ -16,20 +16,24 @@ public class CrossBanCommand implements CommandExecutor {
         if (author.canBanUsersFromServer()) {
             if (!message.getMentionedUsers().isEmpty()) {
                 User user = message.getMentionedUsers().get(0);
-
-                api.getServerById(BOLB_CHAIRS_1).ifPresent(server -> server.banUser(user));
-                api.getServerById(BOLB_CHAIRS_2).ifPresent(server -> server.banUser(user));
-                api.getServerById(BOLB_CHAIRS_3).ifPresent(server -> server.banUser(user));
-                api.getServerById(BOLB_CHAIRS_4).ifPresent(server -> server.banUser(user));
-                api.getServerById(BOLB_CHAIRS_5).ifPresent(server -> server.banUser(user));
-
+                banUser(api, user, false);
                 message.addReaction("\uD83D\uDC4D");
-                api.getTextChannelById(GAME_LOGS).ifPresent(channel -> channel.sendMessage("\uD83D\uDD28 Cross-banned **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` from the **Bolb Chairs** game servers."));
-            } else {
-                message.addReaction("⚠");
-            }
+            } else message.addReaction("⚠");
+        } else message.delete();
+    }
+
+    private static void banUser(DiscordApi api, User user, Boolean auto) {
+        api.getServerById(BOLB_CHAIRS_1).ifPresent(server -> server.banUser(user));
+        api.getServerById(BOLB_CHAIRS_2).ifPresent(server -> server.banUser(user));
+        api.getServerById(BOLB_CHAIRS_3).ifPresent(server -> server.banUser(user));
+        api.getServerById(BOLB_CHAIRS_4).ifPresent(server -> server.banUser(user));
+        api.getServerById(BOLB_CHAIRS_5).ifPresent(server -> server.banUser(user));
+        api.getServerById(BOLB_CHAIRS_6).ifPresent(server -> server.banUser(user));
+
+        if (auto) {
+            api.getTextChannelById(GAME_LOGS).ifPresent(channel -> channel.sendMessage("\uD83D\uDD28 **[AUTO]** Cross-banned **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` from the **Bolb Chairs** game servers."));
         } else {
-            message.addReaction("\uD83D\uDEAB");
+            api.getTextChannelById(GAME_LOGS).ifPresent(channel -> channel.sendMessage("\uD83D\uDD28 Cross-banned **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` from the **Bolb Chairs** game servers."));
         }
     }
 }

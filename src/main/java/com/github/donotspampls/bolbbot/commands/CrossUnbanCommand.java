@@ -16,21 +16,20 @@ public class CrossUnbanCommand implements CommandExecutor {
         if (author.canBanUsersFromServer()) {
             if (!message.getMentionedUsers().isEmpty()) {
                 User user = message.getMentionedUsers().get(0);
-
-                api.getServerById(BOLB_CHAIRS_1).ifPresent(server -> server.unbanUser(user));
-                api.getServerById(BOLB_CHAIRS_2).ifPresent(server -> server.unbanUser(user));
-                api.getServerById(BOLB_CHAIRS_3).ifPresent(server -> server.unbanUser(user));
-                api.getServerById(BOLB_CHAIRS_4).ifPresent(server -> server.unbanUser(user));
-                api.getServerById(BOLB_CHAIRS_5).ifPresent(server -> server.unbanUser(user));
-
-                message.addReaction("\uD83D\uDC4D");
+                unbanUser(api, user);
                 api.getTextChannelById(GAME_LOGS).ifPresent(channel -> channel.sendMessage("\uD83D\uDE4F Cross-unbanned **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` from the **Bolb Chairs** game servers."));
-            } else {
-                message.addReaction("⚠");
-            }
-        } else {
-            message.addReaction("\uD83D\uDEAB");
-        }
+                message.addReaction("\uD83D\uDC4D");
+            } else message.delete();
+        } else message.delete();
+    }
+
+    private void unbanUser(DiscordApi api, User user) {
+        api.getServerById(BOLB_CHAIRS_1).ifPresent(server -> server.unbanUser(user));
+        api.getServerById(BOLB_CHAIRS_2).ifPresent(server -> server.unbanUser(user));
+        api.getServerById(BOLB_CHAIRS_3).ifPresent(server -> server.unbanUser(user));
+        api.getServerById(BOLB_CHAIRS_4).ifPresent(server -> server.unbanUser(user));
+        api.getServerById(BOLB_CHAIRS_5).ifPresent(server -> server.unbanUser(user));
+        api.getServerById(BOLB_CHAIRS_6).ifPresent(server -> server.banUser(user));
     }
 
 }

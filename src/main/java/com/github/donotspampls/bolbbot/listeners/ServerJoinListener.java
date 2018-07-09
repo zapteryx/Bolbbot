@@ -1,24 +1,20 @@
 package com.github.donotspampls.bolbbot.listeners;
 
 import com.github.donotspampls.bolbbot.Constants;
+import com.github.donotspampls.bolbbot.commands.CrossBanCommand;
+import com.github.donotspampls.bolbbot.commands.SayCommand;
 import org.javacord.api.DiscordApi;
 import org.javacord.api.entity.server.Server;
+import org.javacord.api.entity.server.invite.Invite;
 import org.javacord.api.entity.user.User;
 import org.javacord.api.event.server.member.ServerMemberJoinEvent;
 import org.javacord.api.listener.server.member.ServerMemberJoinListener;
 
-import static com.github.donotspampls.bolbbot.Constants.BOLB_CHAIRS_HUB;
+import static com.github.donotspampls.bolbbot.Constants.*;
 
 public class ServerJoinListener implements ServerMemberJoinListener {
 
     private DiscordApi api;
-    private int bc1count = 0;
-    private int bc2count = 0;
-    private int bc3count = 0;
-    private int bc4count = 0;
-    private int bc5count = 0;
-    private int bc6count = 0;
-
     public ServerJoinListener(DiscordApi api) {
         this.api = api;
     }
@@ -29,30 +25,36 @@ public class ServerJoinListener implements ServerMemberJoinListener {
         String name = ev.getServer().getName();
         User user = ev.getUser();
         Server server = ev.getServer();
+
         Server bchub = api.getServerById(BOLB_CHAIRS_HUB).get();
+        Server bc1srv = api.getServerById(BOLB_CHAIRS_1).get();
+        Server bc2srv = api.getServerById(BOLB_CHAIRS_1).get();
+        Server bc3srv = api.getServerById(BOLB_CHAIRS_1).get();
+        Server bc4srv = api.getServerById(BOLB_CHAIRS_1).get();
+        Server bc5srv = api.getServerById(BOLB_CHAIRS_1).get();
 
         // Send a join message if a user has joined the server.
         if (user.getRoles(bchub).stream().anyMatch(role -> role.getName().contains("Watchers"))) return;
         else {
             switch (name) {
                 case "Bolb Chairs #1":
-                    bc1count = bc1count + 1;
+                    bc1count += 1;
                     api.getTextChannelById(Constants.GAME_LOGS).ifPresent(textChannel -> textChannel.sendMessage("\uD83D\uDCE5 **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` is **#" + bc1count + "** to join the **" + server.getName() + "** server!"));
                     break;
                 case "Bolb Chairs #2":
-                    bc2count = bc2count + 1;
+                    bc2count += 1;
                     api.getTextChannelById(Constants.GAME_LOGS).ifPresent(textChannel -> textChannel.sendMessage("\uD83D\uDCE5 **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` is **#" + bc2count + "** to join the **" + server.getName() + "** server!"));
                     break;
                 case "Bolb Chairs #3":
-                    bc3count = bc3count + 1;
+                    bc3count += 1;
                     api.getTextChannelById(Constants.GAME_LOGS).ifPresent(textChannel -> textChannel.sendMessage("\uD83D\uDCE5 **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` is **#" + bc3count + "** to join the **" + server.getName() + "** server!"));
                     break;
                 case "Bolb Chairs #4":
-                    bc4count = bc4count + 1;
+                    bc4count += 1;
                     api.getTextChannelById(Constants.GAME_LOGS).ifPresent(textChannel -> textChannel.sendMessage("\uD83D\uDCE5 **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` is **#" + bc4count + "** to join the **" + server.getName() + "** server!"));
                     break;
                 case "Bolb Chairs #5":
-                    bc5count = bc5count + 1;
+                    bc5count += 1;
                     api.getTextChannelById(Constants.GAME_LOGS).ifPresent(textChannel -> textChannel.sendMessage("\uD83D\uDCE5 **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` is **#" + bc5count + "** to join the **" + server.getName() + "** server!"));
                     break;
                 case "Bolb Chairs #6":
@@ -61,9 +63,8 @@ public class ServerJoinListener implements ServerMemberJoinListener {
                     bc3count = 0;
                     bc4count = 0;
                     bc5count = 0;
-                    bc6count = bc6count + 1;
+                    bc6count += 1;
                     api.getTextChannelById(Constants.GAME_LOGS).ifPresent(textChannel -> textChannel.sendMessage("\uD83D\uDCE5 **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` is **#" + bc6count + "** to join the **" + server.getName() + "** server!"));
-                    bc6count = 0;
                     break;
                 default: return;
             }
@@ -93,5 +94,32 @@ public class ServerJoinListener implements ServerMemberJoinListener {
                 default:
             }
         }
+
+        // Check if a server is full
+        if (server.getIdAsString().equals(BOLB_CHAIRS_1) && bc1count == bc1limit) {
+            bc1srv.getInvites().join().forEach(Invite::delete);
+            api.getTextChannelById("453889454814265347").ifPresent(textChannel -> textChannel.sendMessage("@everyone This server is now full! Get ready for the next invite \uD83D\uDC40"));
+        }
+        if (server.getIdAsString().equals(BOLB_CHAIRS_2) && bc2count == bc2limit) {
+            bc2srv.getInvites().join().forEach(Invite::delete);
+            api.getTextChannelById("453889454814265347").ifPresent(textChannel -> textChannel.sendMessage("@everyone This server is now full! Get ready for the next invite \uD83D\uDC40"));
+        }
+        if (server.getIdAsString().equals(BOLB_CHAIRS_3) && bc3count == bc3limit) {
+            bc3srv.getInvites().join().forEach(Invite::delete);
+            bc3srv.getTextChannelsByName(BC3_CHANNEL).get(0).sendMessage("@everyone This server is now full! Get ready for the next invite \uD83D\uDC40");
+        }
+        if (server.getIdAsString().equals(BOLB_CHAIRS_4) && bc4count == bc4limit) {
+            bc4srv.getInvites().join().forEach(Invite::delete);
+            bc5srv.getTextChannelsByName(BC4_CHANNEL).get(0).sendMessage("@everyone This server is now full! Get ready for the next invite \uD83D\uDC40");
+        }
+        if (server.getIdAsString().equals(BOLB_CHAIRS_5) && bc5count == bc5limit) {
+            bc5srv.getInvites().join().forEach(Invite::delete);
+            bc5srv.getTextChannelsByName(BC5_CHANNEL).get(0).sendMessage("@everyone This server is now full! Get ready for the next invite \uD83D\uDC40");
+        }
+        if (server.getIdAsString().equals(BOLB_CHAIRS_6) && bc6count == 1) {
+            SayCommand.broadcast("@everyone We now have a winner! Congratulations to " + user + " for winning this round of Bolb Chairs!", api);
+            bc6count = 0;
+        }
+
     }
 }

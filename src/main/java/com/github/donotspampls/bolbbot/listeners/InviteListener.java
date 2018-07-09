@@ -6,6 +6,8 @@ import org.javacord.api.entity.server.Server;
 import org.javacord.api.event.message.MessageCreateEvent;
 import org.javacord.api.listener.message.MessageCreateListener;
 
+import java.util.concurrent.TimeUnit;
+
 public class InviteListener implements MessageCreateListener {
 
     @Override
@@ -14,10 +16,9 @@ public class InviteListener implements MessageCreateListener {
         Message msg = ev.getMessage();
         TextChannel channel = ev.getChannel();
 
-        // really stupid code
         if (server.getName().equals("Bolb Chairs Hub")) {
             if (!msg.getAuthor().canCreateInstantInviteToTextChannel()) {
-                if (msg.getContent().startsWith("https://discord.gg") | ev.getMessage().getContent().startsWith("https://discordapp.com/invite")) {
+                if (msg.getContent().contains("discord.gg") | ev.getMessage().getContent().startsWith("https://discordapp.com/invite")) {
                     msg.delete();
                     channel.sendMessage("<@" + ev.getMessage().getAuthor().getId() + "> - Please do not post invites to other servers here!");
                 }
