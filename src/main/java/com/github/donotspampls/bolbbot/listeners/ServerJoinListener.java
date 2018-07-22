@@ -28,10 +28,11 @@ public class ServerJoinListener implements ServerMemberJoinListener {
 
         Server bchub = api.getServerById(BOLB_CHAIRS_HUB).get();
         Server bc1srv = api.getServerById(BOLB_CHAIRS_1).get();
-        Server bc2srv = api.getServerById(BOLB_CHAIRS_1).get();
-        Server bc3srv = api.getServerById(BOLB_CHAIRS_1).get();
-        Server bc4srv = api.getServerById(BOLB_CHAIRS_1).get();
-        Server bc5srv = api.getServerById(BOLB_CHAIRS_1).get();
+        Server bc2srv = api.getServerById(BOLB_CHAIRS_2).get();
+        Server bc3srv = api.getServerById(BOLB_CHAIRS_3).get();
+        Server bc4srv = api.getServerById(BOLB_CHAIRS_4).get();
+        Server bc5srv = api.getServerById(BOLB_CHAIRS_5).get();
+        Server bc6srv = api.getServerById(BOLB_CHAIRS_6).get();
 
         // Send a join message if a user has joined the server.
         if (user.getRoles(bchub).stream().anyMatch(role -> role.getName().contains("Watchers"))) return;
@@ -102,7 +103,7 @@ public class ServerJoinListener implements ServerMemberJoinListener {
         }
         if (server.getIdAsString().equals(BOLB_CHAIRS_2) && bc2count == bc2limit) {
             bc2srv.getInvites().join().forEach(Invite::delete);
-            api.getTextChannelById("453889454814265347").ifPresent(textChannel -> textChannel.sendMessage("@everyone This server is now full! Get ready for the next invite \uD83D\uDC40"));
+            api.getTextChannelById("453889514381770754").ifPresent(textChannel -> textChannel.sendMessage("@everyone This server is now full! Get ready for the next invite \uD83D\uDC40"));
         }
         if (server.getIdAsString().equals(BOLB_CHAIRS_3) && bc3count == bc3limit) {
             bc3srv.getInvites().join().forEach(Invite::delete);
@@ -117,6 +118,7 @@ public class ServerJoinListener implements ServerMemberJoinListener {
             bc5srv.getTextChannelsByName(BC5_CHANNEL).get(0).sendMessage("@everyone This server is now full! Get ready for the next invite \uD83D\uDC40");
         }
         if (server.getIdAsString().equals(BOLB_CHAIRS_6) && bc6count == 1) {
+            bc6srv.getInvites().join().forEach(Invite::delete);
             SayCommand.broadcast("@everyone We now have a winner! Congratulations to " + user + " for winning this round of Bolb Chairs!", api);
             bc6count = 0;
         }
