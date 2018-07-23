@@ -18,7 +18,7 @@ public class CrossBanCommand implements CommandExecutor {
                 User user = message.getMentionedUsers().get(0);
                 banUser(api, user, false);
                 message.addReaction("\uD83D\uDC4D");
-            } else message.addReaction("⚠");
+            } else message.addReaction("\u26A0");
         } else message.delete();
     }
 

@@ -19,7 +19,7 @@ public class CrossUnbanCommand implements CommandExecutor {
                 unbanUser(api, user);
                 api.getTextChannelById(GAME_LOGS).ifPresent(channel -> channel.sendMessage("\uD83D\uDE4F Cross-unbanned **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` from the **Bolb Chairs** game servers."));
                 message.addReaction("\uD83D\uDC4D");
-            } else message.delete();
+            } else message.addReaction("\u26A0");
         } else message.delete();
     }
 
@@ -29,7 +29,7 @@ public class CrossUnbanCommand implements CommandExecutor {
         api.getServerById(BOLB_CHAIRS_3).ifPresent(server -> server.unbanUser(user));
         api.getServerById(BOLB_CHAIRS_4).ifPresent(server -> server.unbanUser(user));
         api.getServerById(BOLB_CHAIRS_5).ifPresent(server -> server.unbanUser(user));
-        api.getServerById(BOLB_CHAIRS_6).ifPresent(server -> server.banUser(user));
+        api.getServerById(BOLB_CHAIRS_6).ifPresent(server -> server.unbanUser(user));
     }
 
 }

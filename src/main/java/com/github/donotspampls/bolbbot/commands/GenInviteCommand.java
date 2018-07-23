@@ -62,7 +62,7 @@ public class GenInviteCommand implements CommandExecutor {
                     });
                     break;
                 default: {
-                    message.addReaction("⚠");
+                    message.addReaction("\u26A0");
                     break;
                 }
             }

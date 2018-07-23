@@ -12,6 +12,7 @@ import org.javacord.api.util.logging.ExceptionLogger;
 import java.util.concurrent.TimeUnit;
 
 import static com.github.donotspampls.bolbbot.Constants.*;
+import org.javacord.api.entity.activity.ActivityType;
 
 public class PurgeCommand implements CommandExecutor {
 
@@ -19,6 +20,7 @@ public class PurgeCommand implements CommandExecutor {
     public void onCommand(DiscordApi api, Message message, MessageAuthor author) throws InterruptedException {
         if (author.isServerAdmin()) {
             // Get all servers
+            message.addReaction("\u231B");
             Server bch = api.getServerById(BOLB_CHAIRS_HUB).get();
             Server bc1 = api.getServerById(BOLB_CHAIRS_1).get();
             Server bc2 = api.getServerById(BOLB_CHAIRS_2).get();
@@ -50,6 +52,9 @@ public class PurgeCommand implements CommandExecutor {
 
             bc6.getChannelsByName(BC6_CHANNEL).get(0).delete();
             bc6.createTextChannelBuilder().setName(BC6_CHANNEL).create();
+            
+            // Set playing status
+            api.updateActivity("the waiting song", ActivityType.LISTENING);
 
             // Kick all members without a role
             bc1.getMembers().stream().filter(member -> member.getRoles(bch).stream().noneMatch(r -> r.equals(bchwatchers) || r.equals(bchcleaners) || r.equals(bchbolbs))).forEach(bc1::kickUser);
@@ -59,6 +64,13 @@ public class PurgeCommand implements CommandExecutor {
             bc5.getMembers().stream().filter(member -> member.getRoles(bch).stream().noneMatch(r -> r.equals(bchwatchers) || r.equals(bchcleaners) || r.equals(bchbolbs))).forEach(bc5::kickUser);
             bc6.getMembers().stream().filter(member -> member.getRoles(bch).stream().noneMatch(r -> r.equals(bchwatchers) || r.equals(bchcleaners) || r.equals(bchbolbs))).forEach(bc6::kickUser);
 
+            // Reset limit
+            bc1limit = 30;
+            bc2limit = 15;
+            bc3limit = 10;
+            bc4limit = 5;
+            bc5limit = 3;
+            
             // Set welcome message channels (delayed by 5 seconds to fix some issues)
             TimeUnit.SECONDS.sleep(5);
             setMembers(api);

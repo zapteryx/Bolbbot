@@ -40,7 +40,7 @@ public class LimitCommand implements CommandExecutor {
                     break;
                 }
                 default: {
-                    message.addReaction("⚠");
+                    message.addReaction("\u26A0");
                     break;
                 }
             }
