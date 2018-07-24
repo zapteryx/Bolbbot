@@ -45,14 +45,14 @@ public class Constants {
     public static final String BC6_CHANNEL = "no-free-nitro-here";
     
     // Hub Roles
-    public static final String BCH_WATCHERS = "";
-    public static final String BCH_CLEANERS = "";
-    public static final String BCH_BOLBS = "";
-    public static final String BC1 = "";
-    public static final String BC2 = "";
-    public static final String BC3 = "";
-    public static final String BC4 = "";
-    public static final String BC5 = "";
-    public static final String BC6 = "";
+    public static final String BCH_WATCHERS = "470865409185284108";
+    public static final String BCH_CLEANERS = "470865451316936704";
+    public static final String BCH_BOLBS = "470865493486469123";
+    public static final String BC1 = "470867774051188736";
+    public static final String BC2 = "470867772029796353";
+    public static final String BC3 = "470867769945227264";
+    public static final String BC4 = "470867767419994153";
+    public static final String BC5 = "470867764844953600";
+    public static final String BC6 = "470867757278429184";
 
 }
