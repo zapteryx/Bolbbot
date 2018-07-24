@@ -20,7 +20,7 @@ public class Main {
 
         // Logging in
         DiscordApi api = new DiscordApiBuilder().setToken(args[0]).login().join();
-        api.updateActivity("the waiting song", ActivityType.LISTENING);
+        api.updateActivity("lobby music", ActivityType.LISTENING);
         logger.info("Logged in to Discord account: " + api.getYourself().getDiscriminatedName());
 
         // Create command handler

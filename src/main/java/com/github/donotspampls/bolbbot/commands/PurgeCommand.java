@@ -54,7 +54,7 @@ public class PurgeCommand implements CommandExecutor {
             bc6.createTextChannelBuilder().setName(BC6_CHANNEL).create();
             
             // Set playing status
-            api.updateActivity("the waiting song", ActivityType.LISTENING);
+            api.updateActivity("lobby music", ActivityType.LISTENING);
 
             // Kick all members without a role
             bc1.getMembers().stream().filter(member -> member.getRoles(bch).stream().noneMatch(r -> r.equals(bchwatchers) || r.equals(bchcleaners) || r.equals(bchbolbs))).forEach(bc1::kickUser);
