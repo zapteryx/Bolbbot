@@ -30,9 +30,9 @@ public class PurgeCommand implements CommandExecutor {
             Server bc6 = api.getServerById(BOLB_CHAIRS_6).get();
 
             // Get roles from the hub
-            Role bchwatchers = bch.getRoleById("445258332391997440").get();
-            Role bchcleaners = bch.getRoleById("445258337781547030").get();
-            Role bchbolbs = bch.getRoleById("445257662662180898").get();
+            Role bchwatchers = bch.getRoleById(BCH_WATCHERS).get();
+            Role bchcleaners = bch.getRoleById(BCH_CLEANERS).get();
+            Role bchbolbs = bch.getRoleById(BCH_BOLBS).get();
 
             // Get all channels and prune them
             bc1.getChannelsByName(BC1_CHANNEL).get(0).delete();
@@ -65,11 +65,11 @@ public class PurgeCommand implements CommandExecutor {
             bc6.getMembers().stream().filter(member -> member.getRoles(bch).stream().noneMatch(r -> r.equals(bchwatchers) || r.equals(bchcleaners) || r.equals(bchbolbs))).forEach(bc6::kickUser);
 
             // Reset limit
-            bc1limit = 30;
-            bc2limit = 15;
-            bc3limit = 10;
-            bc4limit = 5;
-            bc5limit = 3;
+            bc1limit = BC1_ORIGINAL;
+            bc2limit = BC2_ORIGINAL;
+            bc3limit = BC3_ORIGINAL;
+            bc4limit = BC4_ORIGINAL;
+            bc5limit = BC5_ORIGINAL;
             
             // Set welcome message channels (delayed by 5 seconds to fix some issues)
             TimeUnit.SECONDS.sleep(5);

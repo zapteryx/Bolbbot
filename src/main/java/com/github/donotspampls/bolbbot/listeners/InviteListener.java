@@ -1,5 +1,6 @@
 package com.github.donotspampls.bolbbot.listeners;
 
+import static com.github.donotspampls.bolbbot.Constants.BOLB_CHAIRS_HUB;
 import org.javacord.api.entity.channel.TextChannel;
 import org.javacord.api.entity.message.Message;
 import org.javacord.api.entity.server.Server;
@@ -16,7 +17,7 @@ public class InviteListener implements MessageCreateListener {
         Message msg = ev.getMessage();
         TextChannel channel = ev.getChannel();
 
-        if (server.getName().equals("Bolb Chairs Hub")) {
+        if (server.getIdAsString().equals(BOLB_CHAIRS_HUB)) {
             if (!msg.getAuthor().canCreateInstantInviteToTextChannel()) {
                 if (msg.getContent().contains("discord.gg") | ev.getMessage().getContent().startsWith("https://discordapp.com/invite")) {
                     msg.delete();
