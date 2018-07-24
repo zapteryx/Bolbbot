@@ -3,16 +3,16 @@ package com.github.donotspampls.bolbbot;
 public class Constants {
 
     // Guilds
-    public static final String BOLB_CHAIRS_HUB = "381863137827094548";
-    public static final String BOLB_CHAIRS_1 = "470862770410225664";
-    public static final String BOLB_CHAIRS_2 = "470862795634769930";
-    public static final String BOLB_CHAIRS_3 = "470862815255592991";
-    public static final String BOLB_CHAIRS_4 = "470862837364031488";
-    public static final String BOLB_CHAIRS_5 = "470862869022375966";
-    public static final String BOLB_CHAIRS_6 = "470862893810712577";
+    public static final String BOLB_CHAIRS_HUB = "445256982040018964";
+    public static final String BOLB_CHAIRS_1 = "445257017687539713";
+    public static final String BOLB_CHAIRS_2 = "445257039183216661";
+    public static final String BOLB_CHAIRS_3 = "445257054605541389";
+    public static final String BOLB_CHAIRS_4 = "445257077578006539";
+    public static final String BOLB_CHAIRS_5 = "445257303369711626";
+    public static final String BOLB_CHAIRS_6 = "445260596410318858";
 
     // Channels
-    public static final String GAME_LOGS = "470863481068060673";
+    public static final String GAME_LOGS = "445263102603427840";
 
     // Amount of members in the game servers
     public static int bc1count = 0;
@@ -45,14 +45,14 @@ public class Constants {
     public static final String BC6_CHANNEL = "no-free-nitro-here";
     
     // Hub Roles
-    public static final String BCH_WATCHERS = "470865409185284108";
-    public static final String BCH_CLEANERS = "470865451316936704";
-    public static final String BCH_BOLBS = "470865493486469123";
-    public static final String BC1 = "470867774051188736";
-    public static final String BC2 = "470867772029796353";
-    public static final String BC3 = "470867769945227264";
-    public static final String BC4 = "470867767419994153";
-    public static final String BC5 = "470867764844953600";
-    public static final String BC6 = "470867757278429184";
+    public static final String BCH_WATCHERS = "445258332391997440";
+    public static final String BCH_CLEANERS = "445258337781547030";
+    public static final String BCH_BOLBS = "445257662662180898";
+    public static final String BC1 = "445326005020655636";
+    public static final String BC2 = "445326003771015180";
+    public static final String BC3 = "445326002944737282";
+    public static final String BC4 = "445326002563055616";
+    public static final String BC5 = "445326001606623232";
+    public static final String BC6 = "445326000167976962";
 
 }
