@@ -9,21 +9,21 @@ public class ServerLeaveListener implements ServerMemberLeaveListener {
 
     @Override
     public void onServerMemberLeave(ServerMemberLeaveEvent ev) {
-        String name = ev.getServer().getName();
+        String name = ev.getServer().getIdAsString();
         switch (name) {
-            case "Bolb Chairs #1":
+            case BOLB_CHAIRS_1:
                 bc1count -= 1;
                 break;
-            case "Bolb Chairs #2":
+            case BOLB_CHAIRS_2:
                 bc2count -= 1;
                 break;
-            case "Bolb Chairs #3":
+            case BOLB_CHAIRS_3:
                 bc3count -= 1;
                 break;
-            case "Bolb Chairs #4":
+            case BOLB_CHAIRS_4:
                 bc4count -= 1;
                 break;
-            case "Bolb Chairs #5":
+            case BOLB_CHAIRS_5:
                 bc5count -= 1;
                 break;
         }
