@@ -106,11 +106,11 @@ public class ServerJoinListener implements ServerMemberJoinListener {
         // Check if a server is full
         if (server.getIdAsString().equals(BOLB_CHAIRS_1) && bc1count == bc1limit) {
             bc1srv.getInvites().join().forEach(Invite::delete);
-            api.getTextChannelById(BC1_INFO).ifPresent(textChannel -> textChannel.sendMessage("@everyone This server is now full! Get ready for the next invite \uD83D\uDC40"));
+            bc1srv.getTextChannelsByName(BC1_INFO).get(0).sendMessage("@everyone This server is now full! Get ready for the next invite \uD83D\uDC40");
         }
         if (server.getIdAsString().equals(BOLB_CHAIRS_2) && bc2count == bc2limit) {
             bc2srv.getInvites().join().forEach(Invite::delete);
-            api.getTextChannelById(BC2_INFO).ifPresent(textChannel -> textChannel.sendMessage("@everyone This server is now full! Get ready for the next invite \uD83D\uDC40"));
+            bc2srv.getTextChannelsByName(BC2_INFO).get(0).sendMessage("@everyone This server is now full! Get ready for the next invite \uD83D\uDC40");
         }
         if (server.getIdAsString().equals(BOLB_CHAIRS_3) && bc3count == bc3limit) {
             bc3srv.getInvites().join().forEach(Invite::delete);
