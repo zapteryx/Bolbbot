@@ -36,8 +36,10 @@ public class Constants {
 
     // Guild Channels
     public static final String BC1_INFO = "info";
+    public static final String BC1_INFO_ID = "453889454814265347";
     public static final String BC1_CHANNEL = "spam";
     public static final String BC2_INFO = "info";
+    public static final String BC2_INFO_ID = "453889514381770754";
     public static final String BC2_CHANNEL = "spam";
     public static final String BC3_CHANNEL = "colon-bolbchair-colon";
     public static final String BC4_CHANNEL = "do-you-like-nitro";
