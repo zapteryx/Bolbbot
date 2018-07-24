@@ -75,6 +75,7 @@ public class PurgeCommand implements CommandExecutor {
             TimeUnit.SECONDS.sleep(5);
             setMembers(api);
 
+            message.removeAllReactions();
             message.addReaction("\uD83D\uDC4D");
         } else message.delete();
     }
