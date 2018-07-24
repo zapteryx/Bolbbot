@@ -46,7 +46,7 @@ public class ServerJoinListener implements ServerMemberJoinListener {
                 case "Bolb Chairs #1":
                     bc1count += 1;
                     api.getTextChannelById(Constants.GAME_LOGS).ifPresent(textChannel -> textChannel.sendMessage("\uD83D\uDCE5 **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` is **#" + bc1count + "** to join the **" + server.getName() + "** server!"));
-                    api.updateActivity("a Bolb Chairs round", ActivityType.WATCHING);
+                    if (bc1count == 1) api.updateActivity("a Bolb Chairs round", ActivityType.WATCHING);
                     break;
                 case "Bolb Chairs #2":
                     bc2count += 1;
@@ -72,7 +72,7 @@ public class ServerJoinListener implements ServerMemberJoinListener {
                     bc5count = 0;
                     bc6count += 1;
                     api.getTextChannelById(Constants.GAME_LOGS).ifPresent(textChannel -> textChannel.sendMessage("\uD83D\uDCE5 **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` is **#" + bc6count + "** to join the **" + server.getName() + "** server!"));
-                    api.updateActivity(user.getDiscriminatedName() + "'s victory", ActivityType.WATCHING);
+                    api.updateActivity(user.getName() + "'s victory", ActivityType.WATCHING);
                     break;
                 default: return;
             }
@@ -126,7 +126,7 @@ public class ServerJoinListener implements ServerMemberJoinListener {
         }
         if (server.getIdAsString().equals(BOLB_CHAIRS_6) && bc6count == 1) {
             bc6srv.getInvites().join().forEach(Invite::delete);
-            SayCommand.broadcast("@everyone We now have a winner! Congratulations to **" + user.getDiscriminatedName() + "** on winning this round of Bolb Chairs!", api);
+            SayCommand.broadcast("@everyone We now have a winner! Congratulations to " + user.getMentionTag() + " on winning this round of Bolb Chairs!", api);
             bc6count = 0;
         }
 

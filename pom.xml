@@ -5,7 +5,7 @@
 
     <groupId>com.github.donotspampls</groupId>
     <artifactId>bolbbot</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
 
     <name>Bolbbot</name>
     <description>A utility bot designed to aid the organization of the Bolb Chairs game.</description>
