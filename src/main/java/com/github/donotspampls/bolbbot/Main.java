@@ -22,6 +22,7 @@ public class Main {
         DiscordApi api = new DiscordApiBuilder().setToken(args[0]).login().join();
         api.updateActivity("lobby music", ActivityType.LISTENING);
         logger.info("Logged in to Discord account: " + api.getYourself().getDiscriminatedName());
+        logger.info("Logged in to Discord account: " + api.getYourself().getDiscriminatedName());
 
         // Create command handler
         CommandHandler commandHandler = new JavacordHandler(api);
