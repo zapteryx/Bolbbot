@@ -39,8 +39,12 @@ public class CountCommand implements CommandExecutor {
                     message.addReaction("\uD83D\uDC4D");
                     break;
                 }
+                case "list": {
+                    message.reply("**Server 1** " + bc1count + "\n**Server 2** " + bc2count + "\n**Server 3** " + bc3count + "\n**Server 4** " + bc4count + "\n**Server 5** " + bc5count + "\n**Server 6** " + bc6count);
+                    break;
+                }
                 default: {
-                    message.reply("bc1count: " + bc1count + "\nbc2count: " + bc2count + "\nbc3count: " + bc3count + "\nbc4count: " + bc4count + "\nbc5count: " + bc5count + "\nbc6count: " + bc6count);
+                    message.addReaction("\u26A0");
                     break;
                 }
             }
