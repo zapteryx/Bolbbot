@@ -5,13 +5,14 @@ import de.btobastian.sdcf4j.CommandExecutor;
 import org.javacord.api.DiscordApi;
 import org.javacord.api.entity.message.Message;
 import org.javacord.api.entity.message.MessageAuthor;
+import org.javacord.api.entity.channel.TextChannel;
 
 import static com.github.donotspampls.bolbbot.Constants.*;
 
 public class CountCommand implements CommandExecutor {
 
     @Command(aliases = {",count"}, usage = ",count <server> <count>", description = "Dynamically sets the amount of users in a game server.")
-    public void onCommand(DiscordApi api, String[] args, MessageAuthor author, Message message) {
+    public void onCommand(DiscordApi api, String[] args, MessageAuthor author, Message message, TextChannel channel) {
         if (author.canManageRolesOnServer()) {
             switch (args[0]) {
                 case "1": {
@@ -40,7 +41,7 @@ public class CountCommand implements CommandExecutor {
                     break;
                 }
                 case "list": {
-                    message.reply("**Server 1** " + bc1count + "\n**Server 2** " + bc2count + "\n**Server 3** " + bc3count + "\n**Server 4** " + bc4count + "\n**Server 5** " + bc5count + "\n**Server 6** " + bc6count);
+                    channel.sendMessage("**Server 1** " + bc1count + "\n**Server 2** " + bc2count + "\n**Server 3** " + bc3count + "\n**Server 4** " + bc4count + "\n**Server 5** " + bc5count + "\n**Server 6** " + bc6count);
                     break;
                 }
                 default: {
