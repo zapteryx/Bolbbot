@@ -19,7 +19,6 @@ public class ClearInviteCommand implements CommandExecutor {
     public void onCommand(DiscordApi api, Message message, MessageAuthor author) throws InterruptedException {
         if (author.isServerAdmin()) {
             // Get all servers
-            message.addReaction("\u231B");
             Server bchub = api.getServerById(BOLB_CHAIRS_HUB).get();
             Server bc1srv = api.getServerById(BOLB_CHAIRS_1).get();
             Server bc2srv = api.getServerById(BOLB_CHAIRS_2).get();
@@ -27,11 +26,6 @@ public class ClearInviteCommand implements CommandExecutor {
             Server bc4srv = api.getServerById(BOLB_CHAIRS_4).get();
             Server bc5srv = api.getServerById(BOLB_CHAIRS_5).get();
             Server bc6srv = api.getServerById(BOLB_CHAIRS_6).get();
-
-            // Get roles from the hub
-            Role bchwatchers = bchub.getRoleById(BCH_WATCHERS).get();
-            Role bchcleaners = bchub.getRoleById(BCH_CLEANERS).get();
-            Role bchbolbs = bchub.getRoleById(BCH_BOLBS).get();
 
             // Clear invites
             bc1srv.getInvites().join().forEach(Invite::delete);
