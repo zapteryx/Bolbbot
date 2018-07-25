@@ -8,6 +8,7 @@ import org.javacord.api.entity.message.MessageAuthor;
 import org.javacord.api.entity.permission.Role;
 import org.javacord.api.entity.server.Server;
 import org.javacord.api.util.logging.ExceptionLogger;
+import org.javacord.api.entity.server.invite.Invite;
 
 import java.util.concurrent.TimeUnit;
 
