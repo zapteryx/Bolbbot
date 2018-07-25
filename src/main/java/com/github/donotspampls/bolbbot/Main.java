@@ -34,6 +34,7 @@ public class Main {
         commandHandler.registerCommand(new LimitCommand());
         commandHandler.registerCommand(new PurgeCommand());
         commandHandler.registerCommand(new SayCommand());
+        commandHandler.registerCommand(new ClearInviteCommand());
 
         // Register listeners
         api.addListener(new InviteListener());
