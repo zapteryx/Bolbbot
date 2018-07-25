@@ -40,7 +40,7 @@ public class CountCommand implements CommandExecutor {
                     break;
                 }
                 default: {
-                    message.addReaction("\u26A0");
+                    message.reply("bc1count: " + bc1count + "\nbc2count: " + bc2count + "\nbc3count: " + bc3count + "\nbc4count: " + bc4count + "\nbc5count: " + bc5count + "\nbc6count: " + bc6count).get();
                     break;
                 }
             }
