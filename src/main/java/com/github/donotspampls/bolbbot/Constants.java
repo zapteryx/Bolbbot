@@ -3,16 +3,16 @@ package com.github.donotspampls.bolbbot;
 public class Constants {
 
     // Guilds
-    public static final String BOLB_CHAIRS_HUB = "445256982040018964";
-    public static final String BOLB_CHAIRS_1 = "445257017687539713";
-    public static final String BOLB_CHAIRS_2 = "445257039183216661";
-    public static final String BOLB_CHAIRS_3 = "445257054605541389";
-    public static final String BOLB_CHAIRS_4 = "445257077578006539";
-    public static final String BOLB_CHAIRS_5 = "445257303369711626";
-    public static final String BOLB_CHAIRS_6 = "445260596410318858";
+    public static final String BOLB_CHAIRS_HUB = "449124191078318082";
+    public static final String BOLB_CHAIRS_1 = "470862770410225664";
+    public static final String BOLB_CHAIRS_2 = "470862795634769930";
+    public static final String BOLB_CHAIRS_3 = "470862815255592991";
+    public static final String BOLB_CHAIRS_4 = "470862837364031488";
+    public static final String BOLB_CHAIRS_5 = "470862869022375966";
+    public static final String BOLB_CHAIRS_6 = "470862893810712577";
 
     // Channels
-    public static final String GAME_LOGS = "445263102603427840";
+    public static final String GAME_LOGS = "471638512542679052";
 
     // Amount of members in the game servers
     public static int bc1count = 0;
@@ -23,23 +23,23 @@ public class Constants {
     public static int bc6count = 0;
 
     // Default server limits
-    public static int bc1limit = 30;
-    public static int bc2limit = 15;
-    public static int bc3limit = 10;
-    public static int bc4limit = 5;
-    public static int bc5limit = 3;
-    public static final int BC1_ORIGINAL = 30;
-    public static final int BC2_ORIGINAL = 15;
-    public static final int BC3_ORIGINAL = 10;
-    public static final int BC4_ORIGINAL = 5;
-    public static final int BC5_ORIGINAL = 3;
+    public static int bc1limit = 10;
+    public static int bc2limit = 5;
+    public static int bc3limit = 4;
+    public static int bc4limit = 3;
+    public static int bc5limit = 2;
+    public static final int BC1_ORIGINAL = 10;
+    public static final int BC2_ORIGINAL = 5;
+    public static final int BC3_ORIGINAL = 4;
+    public static final int BC4_ORIGINAL = 3;
+    public static final int BC5_ORIGINAL = 2;
 
     // Guild Channels
     public static final String BC1_INFO = "info";
-    public static final String BC1_INFO_ID = "453889454814265347";
+    public static final String BC1_INFO_ID = "470863689671770123";
     public static final String BC1_CHANNEL = "spam";
     public static final String BC2_INFO = "info";
-    public static final String BC2_INFO_ID = "453889514381770754";
+    public static final String BC2_INFO_ID = "470863742947557377";
     public static final String BC2_CHANNEL = "spam";
     public static final String BC3_CHANNEL = "colon-bolbchair-colon";
     public static final String BC4_CHANNEL = "do-you-like-nitro";
@@ -47,14 +47,14 @@ public class Constants {
     public static final String BC6_CHANNEL = "no-free-nitro-here";
     
     // Hub Roles
-    public static final String BCH_WATCHERS = "445258332391997440";
-    public static final String BCH_CLEANERS = "445258337781547030";
-    public static final String BCH_BOLBS = "445257662662180898";
-    public static final String BC1 = "445326005020655636";
-    public static final String BC2 = "445326003771015180";
-    public static final String BC3 = "445326002944737282";
-    public static final String BC4 = "445326002563055616";
-    public static final String BC5 = "445326001606623232";
-    public static final String BC6 = "445326000167976962";
+    public static final String BCH_WATCHERS = "471636928350126090";
+    public static final String BCH_CLEANERS = "471636925493673984";
+    public static final String BCH_BOLBS = "471636922536558602";
+    public static final String BC1 = "471638031409872896";
+    public static final String BC2 = "471638028746489856";
+    public static final String BC3 = "471638025827254283";
+    public static final String BC4 = "471638023306477568";
+    public static final String BC5 = "471638014125408257";
+    public static final String BC6 = "471638005720023040";
 
 }
