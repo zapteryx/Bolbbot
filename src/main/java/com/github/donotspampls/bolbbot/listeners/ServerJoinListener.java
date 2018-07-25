@@ -46,7 +46,7 @@ public class ServerJoinListener implements ServerMemberJoinListener {
                 case BOLB_CHAIRS_1:
                     bc1count += 1;
                     api.getTextChannelById(Constants.GAME_LOGS).ifPresent(textChannel -> textChannel.sendMessage("\uD83D\uDCE5 **" + user.getDiscriminatedName() + "** `" + user.getIdAsString() + "` is **#" + bc1count + "** to join the **" + server.getName() + "** server!"));
-                    if (bc1count == 1) api.updateActivity("a Bolb Chairs round", ActivityType.WATCHING);
+                    if (bc1count == 1) api.updateActivity("a Chairs round", ActivityType.WATCHING);
                     break;
                 case BOLB_CHAIRS_2:
                     bc2count += 1;
