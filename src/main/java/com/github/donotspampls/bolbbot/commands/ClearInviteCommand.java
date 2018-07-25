@@ -12,7 +12,6 @@ import org.javacord.api.util.logging.ExceptionLogger;
 import java.util.concurrent.TimeUnit;
 
 import static com.github.donotspampls.bolbbot.Constants.*;
-import org.javacord.api.entity.activity.ActivityType;
 
 public class ClearInviteCommand implements CommandExecutor {
 
@@ -30,9 +29,9 @@ public class ClearInviteCommand implements CommandExecutor {
             Server bc6srv = api.getServerById(BOLB_CHAIRS_6).get();
 
             // Get roles from the hub
-            Role bchwatchers = bch.getRoleById(BCH_WATCHERS).get();
-            Role bchcleaners = bch.getRoleById(BCH_CLEANERS).get();
-            Role bchbolbs = bch.getRoleById(BCH_BOLBS).get();
+            Role bchwatchers = bchub.getRoleById(BCH_WATCHERS).get();
+            Role bchcleaners = bchub.getRoleById(BCH_CLEANERS).get();
+            Role bchbolbs = bchub.getRoleById(BCH_BOLBS).get();
 
             // Clear invites
             bc1srv.getInvites().join().forEach(Invite::delete);
