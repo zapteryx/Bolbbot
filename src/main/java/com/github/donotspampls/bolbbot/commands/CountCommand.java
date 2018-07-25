@@ -41,7 +41,7 @@ public class CountCommand implements CommandExecutor {
                     break;
                 }
                 case "list": {
-                    channel.sendMessage("**Server 1** " + bc1count + "\n**Server 2** " + bc2count + "\n**Server 3** " + bc3count + "\n**Server 4** " + bc4count + "\n**Server 5** " + bc5count + "\n**Server 6** " + bc6count);
+                    channel.sendMessage("```Server 1 " + bc1count + "\nServer 2 " + bc2count + "\nServer 3 " + bc3count + "\nServer 4 " + bc4count + "\nServer 5 " + bc5count + "\nServer 6 " + bc6count + "```");
                     break;
                 }
                 default: {
